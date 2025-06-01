@@ -1,0 +1,281 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #0047FF;
+    --light-blue: #E6ECFF;
+    --text: #333333;
+    --background: #FFFFFF;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 120px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* 排版 */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.125rem;
+}
+
+.highlight {
+    color: var(--blue);
+}
+
+/* 导航栏 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    position: fixed;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 1000;
+    background-color: var(--background);
+    transition: padding 0.3s ease;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: var(--spacing-md);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: var(--blue);
+}
+
+/* 主要内容 */
+main {
+    padding-top: 100px;
+}
+
+/* 介绍部分 */
+.intro {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.intro h1 {
+    max-width: 800px;
+}
+
+.intro p {
+    max-width: 600px;
+    font-size: 1.25rem;
+}
+
+/* 应用部分 */
+.apps {
+    padding: var(--spacing-xl) 0;
+}
+
+.app-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.app {
+    position: relative;
+}
+
+.app h3 {
+    color: var(--blue);
+}
+
+/* 理念部分 */
+.philosophy {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-blue);
+}
+
+.philosophy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 联系部分 */
+.contact {
+    padding: var(--spacing-xl) 0;
+}
+
+.contact-info {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: fit-content;
+}
+
+.contact-form button:hover {
+    background-color: #0035CC;
+}
+
+/* 页脚 */
+footer {
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    header {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .intro {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .apps, .philosophy, .contact {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        gap: var(--spacing-sm);
+    }
+    
+    nav ul li {
+        margin-left: var(--spacing-sm);
+    }
+    
+    .app-list {
+        grid-template-columns: 1fr;
+    }
+}
