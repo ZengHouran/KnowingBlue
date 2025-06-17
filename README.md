@@ -1,97 +1,69 @@
-# KnowingBlue Studio 官方网站
+# Welcome to your Lovable project
 
-这是KnowingBlue工作室的官方网站源代码，采用简洁、优雅和艺术的设计风格，展示工作室的应用和理念。
+## Project info
 
-## 特点
+**URL**: https://lovable.dev/projects/f34e3a91-e821-4705-9e65-257dcf59254e
 
-- 现代简约的设计风格
-- 响应式布局，适配各种设备
-- 流畅的动画和交互效果
-- 优雅的蓝色主题
+## How can I edit this code?
 
-## 技术栈
+There are several ways of editing your application.
 
-- HTML5
-- CSS3 (Flexbox, Grid, 动画)
-- 原生JavaScript
-- 响应式设计
+**Use Lovable**
 
-## 网站结构
+Simply visit the [Lovable Project](https://lovable.dev/projects/f34e3a91-e821-4705-9e65-257dcf59254e) and start prompting.
 
-- **首页**: 工作室简介和视觉展示
-- **应用**: 展示工作室开发的应用
-- **理念**: 工作室的设计理念和价值观
-- **联系**: 联系表单和联系信息
+Changes made via Lovable will be committed automatically to this repo.
 
-## 本地运行
+**Use your preferred IDE**
 
-由于这是一个纯静态网站，您可以直接在浏览器中打开`index.html`文件查看网站，或者使用任何静态文件服务器托管网站。
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-### 使用Python简易服务器
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-```bash
-python -m http.server
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-然后在浏览器中访问 `http://localhost:8000`
+**Edit a file directly in GitHub**
 
-### 使用Node.js服务器
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-首先安装http-server：
+**Use GitHub Codespaces**
 
-```bash
-npm install -g http-server
-```
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-然后运行：
+## What technologies are used for this project?
 
-```bash
-http-server
-```
+This project is built with .
 
-访问 `http://localhost:8080`
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-## 自定义
+## How can I deploy this project?
 
-### 修改颜色主题
+Simply open [Lovable](https://lovable.dev/projects/f34e3a91-e821-4705-9e65-257dcf59254e) and click on Share -> Publish.
 
-网站的主色调定义在`styles.css`文件中，您可以修改以下CSS变量来更改网站的颜色方案：
+## I want to use a custom domain - is that possible?
 
-```css
-.blue {
-    color: #1e3a8a; /* 修改这里的颜色代码 */
-}
-```
-
-### 添加新应用
-
-在`index.html`文件中的`.app-cards`部分添加新的应用卡片：
-
-```html
-<div class="app-card">
-    <div class="app-icon"></div>
-    <h3>新应用名称</h3>
-    <p>新应用的描述文本。</p>
-    <a href="#" class="btn-outline">了解更多</a>
-</div>
-```
-
-## 贡献
-
-欢迎提交问题和改进建议。如果您想为项目做出贡献，请遵循以下步骤：
-
-1. Fork 这个仓库
-2. 创建您的特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开一个 Pull Request
-
-## 许可
-
-[MIT](LICENSE)
-
-## 联系
-
-KnowingBlue Studio - info@knowingblue.com
-
-项目链接: [https://github.com/yourusername/KnowingBlue](https://github.com/yourusername/KnowingBlue)
+We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)

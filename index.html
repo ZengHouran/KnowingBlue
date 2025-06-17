@@ -1,81 +1,353 @@
+
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KnowingBlue</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orangery Ventures</title>
+    <meta name="description" content="Orangery Ventures invests in future-defining technology companies." />
+    <meta name="author" content="Orangery Ventures" />
+    <meta property="og:image" content="./og-image.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Georgia', 'serif'],
+                    },
+                    colors: {
+                        'muted-foreground': '#6b7280',
+                        'orangery-500': '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-bg {
+            background-image: url('./public/lovable-uploads/a0278ce1-b82d-4ed6-a186-14a9503ef65c.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <div class="logo">KnowingBlue</div>
-            <nav>
-                <ul>
-                    <li><a href="#apps">应用</a></li>
-                    <li><a href="#philosophy">理念</a></li>
-                    <li><a href="#contact">联系</a></li>
-                </ul>
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
+        <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <a href="#home" class="text-xl font-serif font-medium tracking-tight text-white hover:text-gray-200 transition-colors">
+                Orangery Ventures
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors">Home</a>
+                <a href="#thesis" class="text-sm text-white hover:text-gray-200 transition-colors">Thesis</a>
+                <a href="#founders" class="text-sm text-white hover:text-gray-200 transition-colors">Founders</a>
+                <a href="#approach" class="text-sm text-white hover:text-gray-200 transition-colors">Approach</a>
+                <a href="#about" class="text-sm text-white hover:text-gray-200 transition-colors">About</a>
+                <a href="#contact" class="text-sm text-white hover:text-gray-200 transition-colors">Contact</a>
             </nav>
-        </header>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+            <nav class="container mx-auto px-4 py-4 space-y-2">
+                <a href="#home" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Home</a>
+                <a href="#thesis" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Thesis</a>
+                <a href="#founders" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Founders</a>
+                <a href="#approach" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Approach</a>
+                <a href="#about" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">About</a>
+                <a href="#contact" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-        <main>
-            <section id="intro" class="intro">
-                <h1>我们为生活带来<span class="highlight">惊喜</span><br>通过创造精致的小应用</h1>
-                <p>我们相信，无论产品多小，都有能力让你的生活更美好</p>
-            </section>
-
-            <section id="apps" class="apps">
-                <h2>我们的产品</h2>
-                <div class="app-list">
-                    <div class="app">
-                        <h3>应用一</h3>
-                        <p>这是我们开发的第一款应用，专注于提供简洁而强大的用户体验。</p>
+    <main class="relative">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center overflow-hidden hero-bg">
+            <div class="absolute inset-0 bg-black/30"></div>
+            
+            <div class="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10 max-w-4xl">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="fade-in" data-delay="200">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-tight mb-6">
+                            Orangery Ventures
+                        </h1>
                     </div>
-                    <div class="app">
-                        <h3>应用二</h3>
-                        <p>我们的第二款应用，旨在解决用户的特定需求，提供创新的解决方案。</p>
+                    
+                    <div class="fade-in" data-delay="300">
+                        <p class="text-lg md:text-xl text-white/90 mb-4">
+                            We believe founders with unfair advantages & domain expertise.
+                        </p>
+                        <p class="text-lg md:text-xl text-white/90 mb-8">
+                            We back diverse teams and overlooked founders. First check, Baltic focus.
+                        </p>
                     </div>
-                </div>
-            </section>
-
-            <section id="philosophy" class="philosophy">
-                <h2>我们的理念</h2>
-                <div class="philosophy-content">
-                    <p>在KnowingBlue，我们相信简约而不简单的设计理念。我们追求的是在复杂中找到简单，在平凡中创造非凡。</p>
-                    <p>蓝色代表着深度、稳定和智慧，正如我们对产品的追求 - 深度的用户体验，稳定的性能表现，以及智慧的功能设计。</p>
-                </div>
-            </section>
-
-            <section id="contact" class="contact">
-                <h2>联系我们</h2>
-                <div class="contact-info">
-                    <p>邮箱：info@knowingblue.com</p>
-                    <p>地址：中国·创意之城</p>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="您的姓名">
-                    <input type="email" placeholder="您的邮箱">
-                    <textarea placeholder="您的留言"></textarea>
-                    <button type="submit">发送</button>
-                </form>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-logo">KnowingBlue</div>
-                <div class="footer-copyright">
-                    &copy; 2023 KnowingBlue. 保留所有权利。
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Manifesto/Thesis Section -->
+        <section id="thesis" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-3xl mx-auto">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-10 text-center">Thesis</h2>
+                    </div>
+                    
+                    <div class="fade-in" data-delay="100">
+                        <p class="text-xl md:text-2xl leading-relaxed mb-12 font-serif text-center">
+                            The next wave of high-growth startups will come from overlooked founders: corporate leaders, academia-driven innovators, and diverse teams.
+                        </p>
+                    </div>
+                    
+                    <div class="fade-in" data-delay="200">
+                        <p class="text-lg leading-relaxed text-muted-foreground text-center">
+                            Directing investment towards diverse teams is a strategic move that not only promotes equity but also leverages untapped potential for economic growth — and higher returns
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gap Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8">The Gap</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            Traditional VC often overlooks exceptional founders who don't fit the typical Silicon Valley mold. We see opportunity where others see risk.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders in Search Section -->
+        <section id="founders" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center">Founders We Seek</h2>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="fade-in" data-delay="100">
+                            <div class="text-center p-6">
+                                <h3 class="text-xl font-serif mb-4">Corporate Leaders</h3>
+                                <p class="text-muted-foreground">Executives with deep industry knowledge ready to disrupt from within</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in" data-delay="200">
+                            <div class="text-center p-6">
+                                <h3 class="text-xl font-serif mb-4">Academic Innovators</h3>
+                                <p class="text-muted-foreground">Researchers turning breakthrough science into scalable businesses</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in" data-delay="300">
+                            <div class="text-center p-6">
+                                <h3 class="text-xl font-serif mb-4">Diverse Teams</h3>
+                                <p class="text-muted-foreground">Underrepresented founders with unique perspectives and solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Approach Section -->
+        <section id="approach" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center">Our Approach</h2>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="fade-in" data-delay="100">
+                            <h3 class="text-xl font-serif mb-4">First Check</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                We're often the first institutional investor, providing not just capital but validation and strategic guidance from day one.
+                            </p>
+                        </div>
+                        
+                        <div class="fade-in" data-delay="200">
+                            <h3 class="text-xl font-serif mb-4">Baltic Focus</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                Deep expertise in the Baltic region, understanding local markets while connecting founders to global opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8">About Orangery Ventures</h2>
+                        <p class="text-lg leading-relaxed text-muted-foreground mb-8">
+                            We are a venture capital firm focused on backing exceptional founders who are building the future. Our mission is to identify and support the next generation of technology leaders.
+                        </p>
+                        <p class="text-lg leading-relaxed text-muted-foreground">
+                            With deep expertise in technology and a commitment to diversity, we provide more than just funding – we offer strategic guidance, network access, and unwavering support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8">Join Our Community</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                            Connect with like-minded founders, investors, and innovators who are shaping the future of technology.
+                        </p>
+                        <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-20 md:py-32 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <div class="fade-in">
+                    <h2 class="text-3xl md:text-4xl font-serif mb-8">Let's Build the Future Together</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                        Are you a founder with a vision? We'd love to hear from you.
+                    </p>
+                    <div class="space-y-4">
+                        <p class="text-lg">
+                            <a href="mailto:hello@orangeryventures.com" class="text-orangery-500 hover:underline">
+                                hello@orangeryventures.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#home" class="text-xl font-serif font-medium tracking-tight hover:text-orangery-500 transition-colors">
+                        Orangery Ventures
+                    </a>
+                </div>
+                
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#home" class="text-sm hover:text-orangery-500 transition-colors">Home</a>
+                    <a href="#thesis" class="text-sm hover:text-orangery-500 transition-colors">Thesis</a>
+                    <a href="#founders" class="text-sm hover:text-orangery-500 transition-colors">Founders</a>
+                    <a href="#approach" class="text-sm hover:text-orangery-500 transition-colors">Approach</a>
+                    <a href="#about" class="text-sm hover:text-orangery-500 transition-colors">About</a>
+                </div>
+                
+                <div class="text-sm text-muted-foreground">
+                    © 2024 Orangery Ventures. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const headerHeight = 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 10) {
+                header.classList.remove('py-5', 'bg-transparent');
+                header.classList.add('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
+                // Change text color for scrolled state
+                header.querySelectorAll('a').forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-gray-200');
+                    link.classList.add('text-gray-900', 'hover:text-orangery-500');
+                });
+            } else {
+                header.classList.remove('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
+                header.classList.add('py-5', 'bg-transparent');
+                // Change text color for transparent state
+                header.querySelectorAll('a').forEach(link => {
+                    link.classList.remove('text-gray-900', 'hover:text-orangery-500');
+                    link.classList.add('text-white', 'hover:text-gray-200');
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
