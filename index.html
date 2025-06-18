@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orangery Ventures</title>
-    <meta name="description" content="Orangery Ventures invests in future-defining technology companies." />
-    <meta name="author" content="Orangery Ventures" />
+    <title>KnowingBlue</title>
+    <meta name="description" content="KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。" />
+    <meta name="author" content="KnowingBlue" />
     <meta property="og:image" content="./og-image.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,17 +48,32 @@
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
         <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
             <a href="#home" class="text-xl font-serif font-medium tracking-tight text-white hover:text-gray-200 transition-colors">
-                Orangery Ventures
+                KnowingBlue
             </a>
             
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors">Home</a>
-                <a href="#thesis" class="text-sm text-white hover:text-gray-200 transition-colors">Thesis</a>
-                <a href="#founders" class="text-sm text-white hover:text-gray-200 transition-colors">Founders</a>
-                <a href="#approach" class="text-sm text-white hover:text-gray-200 transition-colors">Approach</a>
-                <a href="#about" class="text-sm text-white hover:text-gray-200 transition-colors">About</a>
-                <a href="#contact" class="text-sm text-white hover:text-gray-200 transition-colors">Contact</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                <a href="#philosophy" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="philosophy">理念</a>
+                <a href="#services" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="services">服务</a>
+                <a href="#approach" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="approach">方法</a>
+                <a href="#about" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="about">关于</a>
+                <a href="#contact" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="contact">联系</a>
+                
+                <!-- Language Switcher -->
+                <div class="relative">
+                    <button id="lang-switcher" class="text-sm text-white hover:text-gray-200 transition-colors flex items-center space-x-1">
+                        <span id="current-lang">中文</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[100px]">
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</button>
+                    </div>
+                </div>
             </nav>
             
             <!-- Mobile Menu Button -->
@@ -72,12 +87,22 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <nav class="container mx-auto px-4 py-4 space-y-2">
-                <a href="#home" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Home</a>
-                <a href="#thesis" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Thesis</a>
-                <a href="#founders" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Founders</a>
-                <a href="#approach" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Approach</a>
-                <a href="#about" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">About</a>
-                <a href="#contact" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors">Contact</a>
+                <a href="#home" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="home">首页</a>
+                <a href="#philosophy" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="philosophy">理念</a>
+                <a href="#services" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="services">服务</a>
+                <a href="#approach" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="approach">方法</a>
+                <a href="#about" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="about">关于</a>
+                <a href="#contact" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="contact">联系</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="border-t border-gray-200 pt-2 mt-2">
+                    <div class="text-xs text-gray-500 mb-2">语言 / Language</div>
+                    <div class="flex space-x-2">
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="zh">中文</button>
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="en">EN</button>
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="ja">日本語</button>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -91,86 +116,86 @@
                 <div class="max-w-3xl mx-auto text-center">
                     <div class="fade-in" data-delay="200">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-tight mb-6">
-                            Orangery Ventures
+                            KnowingBlue
                         </h1>
                     </div>
                     
                     <div class="fade-in" data-delay="300">
-                        <p class="text-lg md:text-xl text-white/90 mb-4">
-                            We believe founders with unfair advantages & domain expertise.
+                        <p class="text-lg md:text-xl text-white/90 mb-4" data-text="hero-subtitle">
+                            感性驱动认知，品味塑造体验。
                         </p>
-                        <p class="text-lg md:text-xl text-white/90 mb-8">
-                            We back diverse teams and overlooked founders. First check, Baltic focus.
+                        <p class="text-lg md:text-xl text-white/90 mb-8" data-text="hero-description">
+                            我们专注于感性与认知心理的创意探索，用设计触达内心深处。
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Manifesto/Thesis Section -->
-        <section id="thesis" class="py-20 bg-white">
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="py-20 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-3xl mx-auto">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-10 text-center">Thesis</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif mb-10 text-center" data-text="philosophy-title">设计理念</h2>
                     </div>
                     
                     <div class="fade-in" data-delay="100">
-                        <p class="text-xl md:text-2xl leading-relaxed mb-12 font-serif text-center">
-                            The next wave of high-growth startups will come from overlooked founders: corporate leaders, academia-driven innovators, and diverse teams.
+                        <p class="text-xl md:text-2xl leading-relaxed mb-12 font-serif text-center" data-text="philosophy-quote">
+                            感性是认知的起点，品味是体验的升华，触达是情感的共鸣。
                         </p>
                     </div>
                     
                     <div class="fade-in" data-delay="200">
-                        <p class="text-lg leading-relaxed text-muted-foreground text-center">
-                            Directing investment towards diverse teams is a strategic move that not only promotes equity but also leverages untapped potential for economic growth — and higher returns
+                        <p class="text-lg leading-relaxed text-muted-foreground text-center" data-text="philosophy-description">
+                            我们相信真正的创意来源于对人性的深度理解，通过感性与理性的完美融合，创造出触动人心的设计作品。
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gap Section -->
+        <!-- Vision Section -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-8">The Gap</h2>
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            Traditional VC often overlooks exceptional founders who don't fit the typical Silicon Valley mold. We see opportunity where others see risk.
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8" data-text="vision-title">我们的愿景</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed" data-text="vision-description">
+                            在快节奏的数字时代，我们致力于重新连接人与设计的情感纽带，让每一次创意都能深入人心，产生持久的共鸣。
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Founders in Search Section -->
-        <section id="founders" class="py-20 bg-white">
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-4xl mx-auto">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center">Founders We Seek</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center" data-text="services-title">核心服务</h2>
                     </div>
                     
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="fade-in" data-delay="100">
                             <div class="text-center p-6">
-                                <h3 class="text-xl font-serif mb-4">Corporate Leaders</h3>
-                                <p class="text-muted-foreground">Executives with deep industry knowledge ready to disrupt from within</p>
+                                <h3 class="text-xl font-serif mb-4" data-text="service1-title">感性设计</h3>
+                                <p class="text-muted-foreground" data-text="service1-description">基于情感认知的设计方法，创造触动人心的视觉体验</p>
                             </div>
                         </div>
                         
                         <div class="fade-in" data-delay="200">
                             <div class="text-center p-6">
-                                <h3 class="text-xl font-serif mb-4">Academic Innovators</h3>
-                                <p class="text-muted-foreground">Researchers turning breakthrough science into scalable businesses</p>
+                                <h3 class="text-xl font-serif mb-4" data-text="service2-title">品味塑造</h3>
+                                <p class="text-muted-foreground" data-text="service2-description">通过深度的美学研究，提升品牌的文化内涵与审美价值</p>
                             </div>
                         </div>
                         
                         <div class="fade-in" data-delay="300">
                             <div class="text-center p-6">
-                                <h3 class="text-xl font-serif mb-4">Diverse Teams</h3>
-                                <p class="text-muted-foreground">Underrepresented founders with unique perspectives and solutions</p>
+                                <h3 class="text-xl font-serif mb-4" data-text="service3-title">情感触达</h3>
+                                <p class="text-muted-foreground" data-text="service3-description">运用认知心理学原理，建立品牌与用户的深层情感连接</p>
                             </div>
                         </div>
                     </div>
@@ -178,26 +203,26 @@
             </div>
         </section>
 
-        <!-- Investment Approach Section -->
+        <!-- Approach Section -->
         <section id="approach" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-4xl mx-auto">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center">Our Approach</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center" data-text="approach-title">工作方法</h2>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-12">
                         <div class="fade-in" data-delay="100">
-                            <h3 class="text-xl font-serif mb-4">First Check</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                We're often the first institutional investor, providing not just capital but validation and strategic guidance from day one.
+                            <h3 class="text-xl font-serif mb-4" data-text="approach1-title">深度洞察</h3>
+                            <p class="text-muted-foreground leading-relaxed" data-text="approach1-description">
+                                通过深入的用户研究和心理分析，挖掘隐藏在表象之下的真实需求和情感动机。
                             </p>
                         </div>
                         
                         <div class="fade-in" data-delay="200">
-                            <h3 class="text-xl font-serif mb-4">Baltic Focus</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Deep expertise in the Baltic region, understanding local markets while connecting founders to global opportunities.
+                            <h3 class="text-xl font-serif mb-4" data-text="approach2-title">创意实现</h3>
+                            <p class="text-muted-foreground leading-relaxed" data-text="approach2-description">
+                                将抽象的情感概念转化为具体的设计语言，让每一个细节都承载着深层的意义。
                             </p>
                         </div>
                     </div>
@@ -210,12 +235,12 @@
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-3xl mx-auto text-center">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-8">About Orangery Ventures</h2>
-                        <p class="text-lg leading-relaxed text-muted-foreground mb-8">
-                            We are a venture capital firm focused on backing exceptional founders who are building the future. Our mission is to identify and support the next generation of technology leaders.
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8" data-text="about-title">关于 KnowingBlue</h2>
+                        <p class="text-lg leading-relaxed text-muted-foreground mb-8" data-text="about-description1">
+                            我们是一个专注于感性与认知心理相关的创意工作室。我们相信，最打动人心的设计来源于对人性的深刻理解和对美的不懈追求。
                         </p>
-                        <p class="text-lg leading-relaxed text-muted-foreground">
-                            With deep expertise in technology and a commitment to diversity, we provide more than just funding – we offer strategic guidance, network access, and unwavering support.
+                        <p class="text-lg leading-relaxed text-muted-foreground" data-text="about-description2">
+                            通过融合感性思维与理性分析，我们为品牌创造独特的视觉语言和情感体验，让每一次触达都成为难忘的记忆。
                         </p>
                     </div>
                 </div>
@@ -227,12 +252,12 @@
             <div class="container mx-auto px-4 md:px-6">
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="fade-in">
-                        <h2 class="text-3xl md:text-4xl font-serif mb-8">Join Our Community</h2>
-                        <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                            Connect with like-minded founders, investors, and innovators who are shaping the future of technology.
+                        <h2 class="text-3xl md:text-4xl font-serif mb-8" data-text="community-title">加入我们</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-8" data-text="community-description">
+                            与我们一起探索设计的无限可能，用感性的力量创造更有温度的世界。
                         </p>
-                        <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors">
-                            Get in Touch
+                        <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors" data-text="community-button">
+                            联系我们
                         </a>
                     </div>
                 </div>
@@ -241,41 +266,45 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="py-20 md:py-32 bg-white border-t border-gray-100">
+    <footer id="contact" class="bg-gray-900 text-white py-16">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-4xl font-serif mb-8">Let's Build the Future Together</h2>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                        Are you a founder with a vision? We'd love to hear from you.
-                    </p>
-                    <div class="space-y-4">
-                        <p class="text-lg">
-                            <a href="mailto:hello@orangeryventures.com" class="text-orangery-500 hover:underline">
-                                hello@orangeryventures.com
-                            </a>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-serif mb-6" data-text="contact-title">联系我们</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6" data-text="contact-description">
+                            让我们一起创造更有温度的设计，期待与您的合作。
                         </p>
+                        <div class="space-y-3">
+                            <p class="text-gray-300">
+                                <span class="font-medium" data-text="contact-email-label">邮箱:</span> hello@knowingblue.com
+                            </p>
+                            <p class="text-gray-300">
+                                <span class="font-medium" data-text="contact-location-label">地址:</span> <span data-text="contact-location">中国</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in" data-delay="100">
+                        <h3 class="text-2xl font-serif mb-6" data-text="follow-title">关注我们</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block text-gray-300 hover:text-white transition-colors" data-text="social-wechat">
+                                微信公众号
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-white transition-colors" data-text="social-xiaohongshu">
+                                小红书
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-white transition-colors" data-text="social-zhihu">
+                                知乎
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <a href="#home" class="text-xl font-serif font-medium tracking-tight hover:text-orangery-500 transition-colors">
-                        Orangery Ventures
-                    </a>
-                </div>
                 
-                <div class="flex space-x-6 mb-4 md:mb-0">
-                    <a href="#home" class="text-sm hover:text-orangery-500 transition-colors">Home</a>
-                    <a href="#thesis" class="text-sm hover:text-orangery-500 transition-colors">Thesis</a>
-                    <a href="#founders" class="text-sm hover:text-orangery-500 transition-colors">Founders</a>
-                    <a href="#approach" class="text-sm hover:text-orangery-500 transition-colors">Approach</a>
-                    <a href="#about" class="text-sm hover:text-orangery-500 transition-colors">About</a>
-                </div>
-                
-                <div class="text-sm text-muted-foreground">
-                    © 2024 Orangery Ventures. All rights reserved.
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                    <p class="text-gray-400" data-text="copyright">
+                        © 2024 KnowingBlue. 保留所有权利。
+                    </p>
                 </div>
             </div>
         </div>
@@ -348,6 +377,266 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Language switching functionality
+        const translations = {
+            zh: {
+                // Navigation
+                'home': '首页',
+                'philosophy': '理念',
+                'services': '服务',
+                'approach': '方法',
+                'about': '关于',
+                'contact': '联系',
+                
+                // Hero Section
+                'hero-subtitle': '感性驱动认知，品味塑造体验。',
+                'hero-description': '我们专注于感性与认知心理的创意探索，用设计触达内心深处。',
+                
+                // Philosophy Section
+                'philosophy-title': '设计理念',
+                'philosophy-quote': '感性是认知的起点，品味是体验的升华，触达是情感的共鸣。',
+                'philosophy-description': '我们相信真正的创意来源于对人性的深度理解，通过感性与理性的完美融合，创造出触动人心的设计作品。',
+                
+                // Vision Section
+                'vision-title': '我们的愿景',
+                'vision-description': '在快节奏的数字时代，我们致力于重新连接人与设计的情感纽带，让每一次创意都能深入人心，产生持久的共鸣。',
+                
+                // Services Section
+                'services-title': '核心服务',
+                'service1-title': '感性设计',
+                'service1-description': '基于情感认知的设计方法，创造触动人心的视觉体验',
+                'service2-title': '品味塑造',
+                'service2-description': '通过深度的美学研究，提升品牌的文化内涵与审美价值',
+                'service3-title': '情感触达',
+                'service3-description': '运用认知心理学原理，建立品牌与用户的深层情感连接',
+                
+                // Approach Section
+                'approach-title': '工作方法',
+                'approach1-title': '深度洞察',
+                'approach1-description': '通过深入的用户研究和心理分析，挖掘隐藏在表象之下的真实需求和情感动机。',
+                'approach2-title': '创意实现',
+                'approach2-description': '将抽象的情感概念转化为具体的设计语言，让每一个细节都承载着深层的意义。',
+                
+                // About Section
+                'about-title': '关于 KnowingBlue',
+                'about-description1': '我们是一个专注于感性与认知心理相关的创意工作室。我们相信，最打动人心的设计来源于对人性的深刻理解和对美的不懈追求。',
+                'about-description2': '通过融合感性思维与理性分析，我们为品牌创造独特的视觉语言和情感体验，让每一次触达都成为难忘的记忆。',
+                
+                // Community Section
+                'community-title': '加入我们',
+                'community-description': '与我们一起探索设计的无限可能，用感性的力量创造更有温度的世界。',
+                'community-button': '联系我们',
+                
+                // Footer
+                'contact-title': '联系我们',
+                'contact-description': '让我们一起创造更有温度的设计，期待与您的合作。',
+                'contact-email-label': '邮箱:',
+                'contact-location-label': '地址:',
+                'contact-location': '中国',
+                'follow-title': '关注我们',
+                'social-wechat': '微信公众号',
+                'social-xiaohongshu': '小红书',
+                'social-zhihu': '知乎',
+                'copyright': '© 2024 KnowingBlue. 保留所有权利。'
+            },
+            en: {
+                // Navigation
+                'home': 'Home',
+                'philosophy': 'Philosophy',
+                'services': 'Services',
+                'approach': 'Approach',
+                'about': 'About',
+                'contact': 'Contact',
+                
+                // Hero Section
+                'hero-subtitle': 'Emotion drives cognition, taste shapes experience.',
+                'hero-description': 'We focus on creative exploration of emotion and cognitive psychology, using design to reach the depths of the heart.',
+                
+                // Philosophy Section
+                'philosophy-title': 'Design Philosophy',
+                'philosophy-quote': 'Emotion is the starting point of cognition, taste is the sublimation of experience, and touch is the resonance of emotion.',
+                'philosophy-description': 'We believe that true creativity comes from a deep understanding of human nature, creating touching design works through the perfect fusion of sensibility and rationality.',
+                
+                // Vision Section
+                'vision-title': 'Our Vision',
+                'vision-description': 'In the fast-paced digital age, we are committed to reconnecting the emotional bond between people and design, making every creative work deeply touching and creating lasting resonance.',
+                
+                // Services Section
+                'services-title': 'Core Services',
+                'service1-title': 'Emotional Design',
+                'service1-description': 'Design methods based on emotional cognition, creating touching visual experiences',
+                'service2-title': 'Taste Cultivation',
+                'service2-description': 'Through in-depth aesthetic research, enhance the cultural connotation and aesthetic value of brands',
+                'service3-title': 'Emotional Connection',
+                'service3-description': 'Using cognitive psychology principles to establish deep emotional connections between brands and users',
+                
+                // Approach Section
+                'approach-title': 'Our Approach',
+                'approach1-title': 'Deep Insights',
+                'approach1-description': 'Through in-depth user research and psychological analysis, uncover the real needs and emotional motivations hidden beneath the surface.',
+                'approach2-title': 'Creative Implementation',
+                'approach2-description': 'Transform abstract emotional concepts into concrete design language, making every detail carry deep meaning.',
+                
+                // About Section
+                'about-title': 'About KnowingBlue',
+                'about-description1': 'We are a creative studio focused on emotion and cognitive psychology. We believe that the most touching designs come from a deep understanding of human nature and an unrelenting pursuit of beauty.',
+                'about-description2': 'By integrating emotional thinking with rational analysis, we create unique visual languages and emotional experiences for brands, making every touch a memorable memory.',
+                
+                // Community Section
+                'community-title': 'Join Us',
+                'community-description': 'Explore the infinite possibilities of design with us, using the power of emotion to create a warmer world.',
+                'community-button': 'Contact Us',
+                
+                // Footer
+                'contact-title': 'Contact Us',
+                'contact-description': 'Let\'s create warmer designs together, looking forward to collaborating with you.',
+                'contact-email-label': 'Email:',
+                'contact-location-label': 'Location:',
+                'contact-location': 'China',
+                'follow-title': 'Follow Us',
+                'social-wechat': 'WeChat',
+                'social-xiaohongshu': 'Xiaohongshu',
+                'social-zhihu': 'Zhihu',
+                'copyright': '© 2024 KnowingBlue. All rights reserved.'
+            },
+            ja: {
+                // Navigation
+                'home': 'ホーム',
+                'philosophy': '理念',
+                'services': 'サービス',
+                'approach': 'アプローチ',
+                'about': '私たちについて',
+                'contact': 'お問い合わせ',
+                
+                // Hero Section
+                'hero-subtitle': '感性が認知を駆動し、品味が体験を形作る。',
+                'hero-description': '私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。',
+                
+                // Philosophy Section
+                'philosophy-title': 'デザイン理念',
+                'philosophy-quote': '感性は認知の出発点、品味は体験の昇華、触達は感情の共鳴。',
+                'philosophy-description': '真の創造性は人間性への深い理解から生まれると信じ、感性と理性の完璧な融合により、心を動かすデザイン作品を創造します。',
+                
+                // Vision Section
+                'vision-title': '私たちのビジョン',
+                'vision-description': 'ペースの速いデジタル時代において、人とデザインの感情的な絆を再び結び、すべての創造的作品が深く心に響き、持続的な共鳴を生み出すことを目指しています。',
+                
+                // Services Section
+                'services-title': 'コアサービス',
+                'service1-title': '感性デザイン',
+                'service1-description': '感情認知に基づくデザイン手法で、心を動かす視覚体験を創造',
+                'service2-title': '品味の形成',
+                'service2-description': '深い美学研究を通じて、ブランドの文化的内容と美的価値を向上',
+                'service3-title': '感情的つながり',
+                'service3-description': '認知心理学の原理を用いて、ブランドとユーザーの深い感情的つながりを構築',
+                
+                // Approach Section
+                'approach-title': '私たちのアプローチ',
+                'approach1-title': '深い洞察',
+                'approach1-description': '深いユーザー研究と心理分析を通じて、表面の下に隠された真のニーズと感情的動機を発掘します。',
+                'approach2-title': '創造的実現',
+                'approach2-description': '抽象的な感情概念を具体的なデザイン言語に変換し、すべての詳細に深い意味を込めます。',
+                
+                // About Section
+                'about-title': 'KnowingBlueについて',
+                'about-description1': '私たちは感性と認知心理学に特化したクリエイティブスタジオです。最も心を動かすデザインは、人間性への深い理解と美への絶え間ない追求から生まれると信じています。',
+                'about-description2': '感性的思考と理性的分析を融合させることで、ブランドに独特の視覚言語と感情体験を創造し、すべての触れ合いを忘れられない記憶にします。',
+                
+                // Community Section
+                'community-title': '私たちに参加',
+                'community-description': '私たちと一緒にデザインの無限の可能性を探求し、感性の力でより温かい世界を創造しましょう。',
+                'community-button': 'お問い合わせ',
+                
+                // Footer
+                'contact-title': 'お問い合わせ',
+                'contact-description': '一緒により温かいデザインを創造し、あなたとの協力を楽しみにしています。',
+                'contact-email-label': 'メール:',
+                'contact-location-label': '所在地:',
+                'contact-location': '中国',
+                'follow-title': 'フォローする',
+                'social-wechat': 'WeChat',
+                'social-xiaohongshu': 'Xiaohongshu',
+                'social-zhihu': 'Zhihu',
+                'copyright': '© 2024 KnowingBlue. 全著作権所有。'
+            }
+        };
+
+        // Current language
+        let currentLang = localStorage.getItem('language') || 'zh';
+
+        // Language switching function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update current language display
+            const langNames = { zh: '中文', en: 'English', ja: '日本語' };
+            document.getElementById('current-lang').textContent = langNames[lang];
+            
+            // Update all text elements
+            document.querySelectorAll('[data-text]').forEach(element => {
+                const key = element.getAttribute('data-text');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update navigation elements
+            document.querySelectorAll('[data-nav]').forEach(element => {
+                const key = element.getAttribute('data-nav');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = 'KnowingBlue - 感性设计工作室';
+                document.querySelector('meta[name="description"]').content = 'KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。';
+            } else if (lang === 'en') {
+                document.title = 'KnowingBlue - Emotional Design Studio';
+                document.querySelector('meta[name="description"]').content = 'KnowingBlue - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.';
+            } else if (lang === 'ja') {
+                document.title = 'KnowingBlue - 感性デザインスタジオ';
+                document.querySelector('meta[name="description"]').content = 'KnowingBlue - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。';
+            }
+        }
+
+        // Language switcher event listeners
+        document.getElementById('lang-switcher').addEventListener('click', function() {
+            document.getElementById('lang-menu').classList.toggle('hidden');
+        });
+
+        // Desktop language options
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+                document.getElementById('lang-menu').classList.add('hidden');
+            });
+        });
+
+        // Mobile language options
+        document.querySelectorAll('.lang-option-mobile').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const langSwitcher = document.getElementById('lang-switcher');
+            const langMenu = document.getElementById('lang-menu');
+            if (!langSwitcher.contains(event.target)) {
+                langMenu.classList.add('hidden');
+            }
+        });
+
+        // Initialize language on page load
+        switchLanguage(currentLang);
     </script>
 </body>
 </html>
