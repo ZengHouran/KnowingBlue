@@ -1,330 +1,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KnowingBlue</title>
     <meta name="description" content="KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。" />
     <meta name="author" content="KnowingBlue" />
-    <meta property="og:image" content="./og-image.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <meta property="og:image" content="./public/og-image.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'serif': ['Georgia', 'serif'],
-                    },
-                    colors: {
-                        'muted-foreground': '#6b7280',
-                        'orangery-500': '#f97316'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hero-bg {
-            background-image: url('./public/lovable-uploads/background.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
-</head>
-<body class="bg-white text-gray-900 antialiased">
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
-        <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
-            <a href="#home" class="text-xl font-serif font-medium tracking-tight text-white hover:text-gray-200 transition-colors">
-                KnowingBlue
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
-                
-                <!-- Language Switcher -->
-                <div class="relative">
-                    <button id="lang-switcher" class="text-sm text-white hover:text-gray-200 transition-colors flex items-center space-x-1">
-                        <span id="current-lang">中文</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[100px]">
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</button>
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</button>
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</button>
-                    </div>
-                </div>
-            </nav>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
-            <nav class="container mx-auto px-4 py-4 space-y-2">
-                <a href="#home" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="home">首页</a>
-                
-                <!-- Mobile Language Switcher -->
-                <div class="border-t border-gray-200 pt-2 mt-2">
-                    <div class="text-xs text-gray-500 mb-2">语言 / Language</div>
-                    <div class="flex space-x-2">
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="zh">中文</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="en">EN</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="ja">日本語</button>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="relative">
-        <!-- Hero Section -->
-        <section id="home" class="relative min-h-screen flex items-center overflow-hidden hero-bg">
-            <div class="absolute inset-0 bg-black/30"></div>
-            
-            <div class="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10 max-w-4xl">
-                <div class="max-w-3xl mx-auto text-center">
-                    <div class="fade-in" data-delay="200">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-tight mb-6">
-                            KnowingBlue
-                        </h1>
-                    </div>
-                    
-                    <div class="fade-in" data-delay="300">
-                        <p class="text-lg md:text-xl text-white/90 mb-4" data-text="hero-subtitle">
-                            感性驱动认知，品味塑造体验。
-                        </p>
-                        <p class="text-lg md:text-xl text-white/90 mb-8" data-text="hero-description">
-                            我们专注于感性与认知心理的创意探索，用设计触达内心深处。
-                        </p>
-                    </div>
-                    
-                    <div class="fade-in" data-delay="400">
-                        <p class="text-sm text-white/70 mt-12" data-text="copyright">
-                            © 2025 KnowingBlue. 保留所有权利。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-    </main>
-
-
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    const headerHeight = 80;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 10) {
-                header.classList.remove('py-5', 'bg-transparent');
-                header.classList.add('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
-                // Change text color for scrolled state
-                header.querySelectorAll('a').forEach(link => {
-                    link.classList.remove('text-white', 'hover:text-gray-200');
-                    link.classList.add('text-gray-900', 'hover:text-orangery-500');
-                });
-            } else {
-                header.classList.remove('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
-                header.classList.add('py-5', 'bg-transparent');
-                // Change text color for transparent state
-                header.querySelectorAll('a').forEach(link => {
-                    link.classList.remove('text-gray-900', 'hover:text-orangery-500');
-                    link.classList.add('text-white', 'hover:text-gray-200');
-                });
-            }
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = entry.target.getAttribute('data-delay') || 0;
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, delay);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Language switching functionality
-        const translations = {
-            zh: {
-                // Navigation
-                'home': '首页',
-                
-                // Hero Section
-                'hero-subtitle': '感性驱动认知，品味塑造体验。',
-                'hero-description': '我们专注于感性与认知心理的创意探索，用设计触达内心深处。',
-                
-
-                
-
-                
-                // Footer
-                'copyright': '© 2025 KnowingBlue. 保留所有权利。'
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+              'serif': ['Georgia', 'serif'],
             },
-            en: {
-                // Navigation
-                'home': 'Home',
-                
-                // Hero Section
-                'hero-subtitle': 'Emotion drives cognition, taste shapes experience.',
-                'hero-description': 'We focus on creative exploration of emotion and cognitive psychology, using design to reach the depths of the heart.',
-                
-
-                
-
-                
-                // Footer
-                'copyright': '© 2025 KnowingBlue. All rights reserved.'
-            },
-            ja: {
-                // Navigation
-                'home': 'ホーム',
-                
-                // Hero Section
-                'hero-subtitle': '感性が認知を駆動し、品味が体験を形作る。',
-                'hero-description': '私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。',
-                
-
-                
-                // Footer
-                'copyright': '© 2025 KnowingBlue. 全著作権所有。'
+            colors: {
+              'muted-foreground': '#6b7280',
+              'orange-500': '#f97316'
             }
-        };
-
-        // Current language
-        let currentLang = localStorage.getItem('language') || 'zh';
-
-        // Language switching function
-        function switchLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('language', lang);
-            
-            // Update current language display
-            const langNames = { zh: '中文', en: 'English', ja: '日本語' };
-            document.getElementById('current-lang').textContent = langNames[lang];
-            
-            // Update all text elements
-            document.querySelectorAll('[data-text]').forEach(element => {
-                const key = element.getAttribute('data-text');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-            
-            // Update navigation elements
-            document.querySelectorAll('[data-nav]').forEach(element => {
-                const key = element.getAttribute('data-nav');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-            
-            // Update page title and meta description
-            if (lang === 'zh') {
-                document.title = 'KnowingBlue - 感性设计工作室';
-                document.querySelector('meta[name="description"]').content = 'KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。';
-            } else if (lang === 'en') {
-                document.title = 'KnowingBlue - Emotional Design Studio';
-                document.querySelector('meta[name="description"]').content = 'KnowingBlue - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.';
-            } else if (lang === 'ja') {
-                document.title = 'KnowingBlue - 感性デザインスタジオ';
-                document.querySelector('meta[name="description"]').content = 'KnowingBlue - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。';
-            }
+          }
         }
-
-        // Language switcher event listeners
-        document.getElementById('lang-switcher').addEventListener('click', function() {
-            document.getElementById('lang-menu').classList.toggle('hidden');
-        });
-
-        // Desktop language options
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                switchLanguage(lang);
-                document.getElementById('lang-menu').classList.add('hidden');
-            });
-        });
-
-        // Mobile language options
-        document.querySelectorAll('.lang-option-mobile').forEach(option => {
-            option.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                switchLanguage(lang);
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        // Close language menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const langSwitcher = document.getElementById('lang-switcher');
-            const langMenu = document.getElementById('lang-menu');
-            if (!langSwitcher.contains(event.target)) {
-                langMenu.classList.add('hidden');
-            }
-        });
-
-        // Initialize language on page load
-        switchLanguage(currentLang);
+      }
     </script>
-</body>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
