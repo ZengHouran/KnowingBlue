@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>愿景 - KnowingBlue</title>
+    <meta name="description" content="了解KnowingBlue的愿景 - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。" />
+    <meta name="author" content="KnowingBlue" />
+    <meta property="og:image" content="./og-image.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Georgia', 'serif'],
+                    },
+                    colors: {
+                        'muted-foreground': '#6b7280',
+                        'orangery-500': '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .vision-hero-bg {
+            background-image: url('./public/pictures/origin5f51e91125495953b87f3f30.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
+        <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-serif font-medium tracking-tight text-white hover:text-gray-200 transition-colors">
+                KnowingBlue
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                <a href="vision.html" class="text-sm text-white hover:text-gray-200 font-medium" data-nav="vision">愿景</a>
+                
+                <!-- Language Switcher -->
+                <div class="relative">
+                    <button id="lang-switcher" class="text-sm text-white hover:text-gray-200 transition-colors flex items-center space-x-1">
+                        <span id="current-lang">中文</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[100px]">
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</button>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+            <nav class="container mx-auto px-4 py-4 space-y-2">
+                <a href="index.html" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="home">首页</a>
+                <a href="vision.html" class="block text-sm text-orangery-500 font-medium" data-nav="vision">愿景</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="border-t border-gray-200 pt-2 mt-2">
+                    <div class="text-xs text-gray-500 mb-2">语言 / Language</div>
+                    <div class="flex space-x-2">
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="zh">中文</button>
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="en">EN</button>
+                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="ja">日本語</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center overflow-hidden vision-hero-bg">
+            <div class="absolute inset-0 bg-black/30"></div>
+            
+            <div class="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10 max-w-4xl">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="fade-in" data-delay="200">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-tight mb-6" data-text="vision-page-title">
+                            愿景
+                        </h1>
+                    </div>
+                    
+                    <div class="fade-in" data-delay="300">
+                        <p class="text-lg md:text-xl text-white/90 mb-8" data-text="vision-page-subtitle">
+                            探索感性与认知的边界，用设计连接内心与世界
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Content Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <div class="max-w-3xl mx-auto text-center mb-20">
+                    <div class="fade-in" data-delay="400">
+                        <h2 class="text-2xl md:text-3xl font-serif font-medium text-gray-900 mb-6" data-text="vision-title">
+                            我们的愿景
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed mb-4" data-text="vision-content1">
+                            KnowingBlue 致力于探索感性与认知心理学的交汇点，我们相信真正触动人心的设计源于对人类情感和认知模式的深度理解。
+                        </p>
+                        <p class="text-gray-600 leading-relaxed" data-text="vision-content2">
+                            通过将感性思维与理性分析相结合，我们创造出既美观又具有深层意义的作品，让每一次体验都能触达用户的内心深处。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-20">
+                    <div class="fade-in text-center" data-delay="600">
+                        <div class="w-12 h-12 bg-orangery-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2" data-text="sensibility-title">感性</h3>
+                        <p class="text-sm text-gray-600" data-text="sensibility-desc">用情感驱动设计，创造有温度的体验</p>
+                    </div>
+                    
+                    <div class="fade-in text-center" data-delay="700">
+                        <div class="w-12 h-12 bg-orangery-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2" data-text="taste-title">品味</h3>
+                        <p class="text-sm text-gray-600" data-text="taste-desc">追求卓越的美学标准和精致的细节</p>
+                    </div>
+                    
+                    <div class="fade-in text-center" data-delay="800">
+                        <div class="w-12 h-12 bg-orangery-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2" data-text="connection-title">触达</h3>
+                        <p class="text-sm text-gray-600" data-text="connection-desc">建立深层次的情感连接和共鸣</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-50 py-12">
+            <div class="container mx-auto px-4 md:px-6 text-center">
+                <p class="text-sm text-gray-500" data-text="copyright">
+                    © 2025 KnowingBlue. 保留所有权利。
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Language switching functionality
+        const translations = {
+            zh: {
+                // Navigation
+                'home': '首页',
+                'vision': '愿景',
+                
+                // Vision Page
+                'vision-page-title': '愿景',
+                'vision-page-subtitle': '探索感性与认知的边界，用设计连接内心与世界',
+                'vision-title': '我们的愿景',
+                'vision-content1': 'KnowingBlue 致力于探索感性与认知心理学的交汇点，我们相信真正触动人心的设计源于对人类情感和认知模式的深度理解。',
+                'vision-content2': '通过将感性思维与理性分析相结合，我们创造出既美观又具有深层意义的作品，让每一次体验都能触达用户的内心深处。',
+                'sensibility-title': '感性',
+                'sensibility-desc': '用情感驱动设计，创造有温度的体验',
+                'taste-title': '品味',
+                'taste-desc': '追求卓越的美学标准和精致的细节',
+                'connection-title': '触达',
+                'connection-desc': '建立深层次的情感连接和共鸣',
+                
+                // Footer
+                'copyright': '© 2025 KnowingBlue. 保留所有权利。'
+            },
+            en: {
+                // Navigation
+                'home': 'Home',
+                'vision': 'Vision',
+                
+                // Vision Page
+                'vision-page-title': 'Vision',
+                'vision-page-subtitle': 'Exploring the boundaries of emotion and cognition, connecting hearts with the world through design',
+                'vision-title': 'Our Vision',
+                'vision-content1': 'KnowingBlue is dedicated to exploring the intersection of emotion and cognitive psychology. We believe that truly touching design stems from a deep understanding of human emotions and cognitive patterns.',
+                'vision-content2': 'By combining emotional thinking with rational analysis, we create works that are both beautiful and deeply meaningful, allowing every experience to reach the depths of users\' hearts.',
+                'sensibility-title': 'Sensibility',
+                'sensibility-desc': 'Emotion-driven design creating warm experiences',
+                'taste-title': 'Taste',
+                'taste-desc': 'Pursuing excellence in aesthetics and refined details',
+                'connection-title': 'Connection',
+                'connection-desc': 'Building deep emotional connections and resonance',
+                
+                // Footer
+                'copyright': '© 2025 KnowingBlue. All rights reserved.'
+            },
+            ja: {
+                // Navigation
+                'home': 'ホーム',
+                'vision': 'ビジョン',
+                
+                // Vision Page
+                'vision-page-title': 'ビジョン',
+                'vision-page-subtitle': '感性と認知の境界を探求し、デザインで心と世界をつなぐ',
+                'vision-title': '私たちのビジョン',
+                'vision-content1': 'KnowingBlueは感性と認知心理学の交差点を探求することに専念しています。私たちは、真に心を動かすデザインは人間の感情と認知パターンの深い理解から生まれると信じています。',
+                'vision-content2': '感性的思考と理性的分析を組み合わせることで、美しく深い意味を持つ作品を創造し、すべての体験がユーザーの心の奥深くに届くようにします。',
+                'sensibility-title': '感性',
+                'sensibility-desc': '感情に駆動されたデザインで温かい体験を創造',
+                'taste-title': '品味',
+                'taste-desc': '美学の卓越性と洗練されたディテールの追求',
+                'connection-title': '触達',
+                'connection-desc': '深い感情的つながりと共鳴の構築',
+                
+                // Footer
+                'copyright': '© 2025 KnowingBlue. 全著作権所有。'
+            }
+        };
+
+        // Current language
+        let currentLang = localStorage.getItem('language') || 'zh';
+
+        // Language switching function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update current language display
+            const langNames = { zh: '中文', en: 'English', ja: '日本語' };
+            document.getElementById('current-lang').textContent = langNames[lang];
+            
+            // Update all text elements
+            document.querySelectorAll('[data-text]').forEach(element => {
+                const key = element.getAttribute('data-text');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update navigation elements
+            document.querySelectorAll('[data-nav]').forEach(element => {
+                const key = element.getAttribute('data-nav');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '愿景 - KnowingBlue';
+                document.querySelector('meta[name="description"]').content = '了解KnowingBlue的愿景 - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。';
+            } else if (lang === 'en') {
+                document.title = 'Vision - KnowingBlue';
+                document.querySelector('meta[name="description"]').content = 'Learn about KnowingBlue\'s vision - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.';
+            } else if (lang === 'ja') {
+                document.title = 'ビジョン - KnowingBlue';
+                document.querySelector('meta[name="description"]').content = 'KnowingBlueのビジョンについて - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。';
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 10) {
+                header.classList.remove('py-5', 'bg-transparent');
+                header.classList.add('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
+                // Change text color for scrolled state
+                header.querySelectorAll('a').forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-gray-200');
+                    link.classList.add('text-gray-900', 'hover:text-orangery-500');
+                });
+                header.querySelector('#lang-switcher').classList.remove('text-white', 'hover:text-gray-200');
+                header.querySelector('#lang-switcher').classList.add('text-gray-900', 'hover:text-orangery-500');
+                header.querySelector('#mobile-menu-btn').classList.remove('text-white');
+                header.querySelector('#mobile-menu-btn').classList.add('text-gray-900');
+            } else {
+                header.classList.remove('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
+                header.classList.add('py-5', 'bg-transparent');
+                // Change text color for transparent state
+                header.querySelectorAll('a').forEach(link => {
+                    link.classList.remove('text-gray-900', 'hover:text-orangery-500');
+                    link.classList.add('text-white', 'hover:text-gray-200');
+                });
+                header.querySelector('#lang-switcher').classList.remove('text-gray-900', 'hover:text-orangery-500');
+                header.querySelector('#lang-switcher').classList.add('text-white', 'hover:text-gray-200');
+                header.querySelector('#mobile-menu-btn').classList.remove('text-gray-900');
+                header.querySelector('#mobile-menu-btn').classList.add('text-white');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+
+        // Language switcher event listeners
+        document.getElementById('lang-switcher').addEventListener('click', function() {
+            document.getElementById('lang-menu').classList.toggle('hidden');
+        });
+
+        // Desktop language options
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+                document.getElementById('lang-menu').classList.add('hidden');
+            });
+        });
+
+        // Mobile language options
+        document.querySelectorAll('.lang-option-mobile').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const langSwitcher = document.getElementById('lang-switcher');
+            const langMenu = document.getElementById('lang-menu');
+            if (!langSwitcher.contains(event.target)) {
+                langMenu.classList.add('hidden');
+            }
+        });
+
+        // Initialize language on page load
+        switchLanguage(currentLang);
+    </script>
+</body>
+</html>

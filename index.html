@@ -37,7 +37,7 @@
             transform: translateY(0);
         }
         .hero-bg {
-            background-image: url('./public/lovable-uploads/background.jpg');
+            background-image: url('./public/pictures/origin5f51e91125495953b87f3f30.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -54,6 +54,7 @@
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                <a href="vision.html" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="vision">愿景</a>
                 
                 <!-- Language Switcher -->
                 <div class="relative">
@@ -83,6 +84,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <nav class="container mx-auto px-4 py-4 space-y-2">
                 <a href="#home" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="home">首页</a>
+                <a href="vision.html" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="vision">愿景</a>
                 
                 <!-- Mobile Language Switcher -->
                 <div class="border-t border-gray-200 pt-2 mt-2">
@@ -156,6 +158,9 @@
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
+            const langSwitcher = document.getElementById('lang-switcher');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            
             if (window.scrollY > 10) {
                 header.classList.remove('py-5', 'bg-transparent');
                 header.classList.add('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
@@ -164,6 +169,16 @@
                     link.classList.remove('text-white', 'hover:text-gray-200');
                     link.classList.add('text-gray-900', 'hover:text-orangery-500');
                 });
+                // Change language switcher color
+                if (langSwitcher) {
+                    langSwitcher.classList.remove('text-white', 'hover:text-gray-200');
+                    langSwitcher.classList.add('text-gray-900', 'hover:text-orangery-500');
+                }
+                // Change mobile menu button color
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('text-white');
+                    mobileMenuBtn.classList.add('text-gray-900');
+                }
             } else {
                 header.classList.remove('py-3', 'bg-white/90', 'backdrop-blur-md', 'border-b', 'border-gray-200/20', 'shadow-sm');
                 header.classList.add('py-5', 'bg-transparent');
@@ -172,6 +187,16 @@
                     link.classList.remove('text-gray-900', 'hover:text-orangery-500');
                     link.classList.add('text-white', 'hover:text-gray-200');
                 });
+                // Change language switcher color
+                if (langSwitcher) {
+                    langSwitcher.classList.remove('text-gray-900', 'hover:text-orangery-500');
+                    langSwitcher.classList.add('text-white', 'hover:text-gray-200');
+                }
+                // Change mobile menu button color
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('text-gray-900');
+                    mobileMenuBtn.classList.add('text-white');
+                }
             }
         });
 
@@ -208,6 +233,7 @@
             zh: {
                 // Navigation
                 'home': '首页',
+                'vision': '愿景',
                 
                 // Hero Section
                 'hero-subtitle': '感性驱动认知，品味塑造体验。',
@@ -223,6 +249,7 @@
             en: {
                 // Navigation
                 'home': 'Home',
+                'vision': 'Vision',
                 
                 // Hero Section
                 'hero-subtitle': 'Emotion drives cognition, taste shapes experience.',
@@ -238,6 +265,7 @@
             ja: {
                 // Navigation
                 'home': 'ホーム',
+                'vision': 'ビジョン',
                 
                 // Hero Section
                 'hero-subtitle': '感性が認知を駆動し、品味が体験を形作る。',
