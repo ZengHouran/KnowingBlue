@@ -135,7 +135,29 @@
 
     </main>
 
+    <!-- Audio Player - Minimal Design -->
+    <div id="audio-player" class="fixed bottom-6 right-6 z-50 transition-all duration-300 opacity-30 hover:opacity-100">
+        <button id="play-pause-btn" class="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 shadow-lg">
+            <svg id="play-icon" class="w-5 h-5 text-white/80" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+            </svg>
+            <svg id="pause-icon" class="w-5 h-5 text-white/80 hidden" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+        </button>
+        <div id="progress-ring" class="absolute inset-0 w-12 h-12 pointer-events-none">
+            <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1" fill="none" class="text-white/20"/>
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" fill="none" 
+                        class="text-white/60 transition-all duration-300" 
+                        stroke-dasharray="125.6" stroke-dashoffset="125.6" id="progress-circle"/>
+            </svg>
+        </div>
+    </div>
 
+    <audio id="background-audio" loop>
+        <source src="./public/music/Featherfall.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         // Smooth scrolling for anchor links
@@ -353,6 +375,153 @@
 
         // Initialize language on page load
         switchLanguage(currentLang);
+        // Audio Player Controls
+        const audio = document.getElementById('background-audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+
+
+        let isPlaying = false;
+
+        // Save audio state before page unload
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('audioState', JSON.stringify({
+                currentTime: audio.currentTime,
+                isPlaying: !audio.paused,
+                volume: audio.volume,
+                muted: audio.muted
+            }));
+        });
+
+        // Format time in MM:SS
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Update progress circle
+        function updateProgress() {
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration);
+                const circumference = 2 * Math.PI * 20; // radius = 20
+                const offset = circumference - (progress * circumference);
+                document.getElementById('progress-circle').style.strokeDashoffset = offset;
+            }
+        }
+
+        // Play/Pause toggle
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            } else {
+                audio.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }
+            isPlaying = !isPlaying;
+        });
+
+
+
+        // Audio event listeners
+
+        audio.addEventListener('timeupdate', updateProgress);
+
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        });
+
+        // Restore audio state on page load
+        const savedState = localStorage.getItem('audioState');
+        let hasAttemptedPlay = false;
+        
+        // Function to attempt autoplay
+        function attemptAutoplay() {
+            if (hasAttemptedPlay) return;
+            hasAttemptedPlay = true;
+            
+            audio.play().then(() => {
+                isPlaying = true;
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }).catch(e => {
+                console.log('Autoplay prevented:', e);
+                // If autoplay fails, set up interaction-based play
+                setupInteractionPlay();
+            });
+        }
+
+        // Function to setup interaction-based play
+        function setupInteractionPlay() {
+            const playOnInteraction = () => {
+                if (hasAttemptedPlay && !isPlaying) {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                        // Remove event listeners after successful play
+                        document.removeEventListener('click', playOnInteraction);
+                        document.removeEventListener('scroll', playOnInteraction);
+                        document.removeEventListener('mousemove', playOnInteraction);
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('keydown', playOnInteraction);
+                    }).catch(e => console.log('Interaction play failed:', e));
+                }
+            };
+
+            // Add multiple interaction events to trigger play
+            document.addEventListener('click', playOnInteraction);
+            document.addEventListener('scroll', playOnInteraction);
+            document.addEventListener('mousemove', playOnInteraction, { once: true });
+            document.addEventListener('touchstart', playOnInteraction, { once: true });
+            document.addEventListener('keydown', playOnInteraction, { once: true });
+        }
+
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            audio.currentTime = state.currentTime || 0;
+            audio.volume = state.volume || 1;
+            audio.muted = state.muted || false;
+            
+            // Always try to resume playing from saved state
+            attemptAutoplay();
+            
+            // Clear the saved state after restoration
+            localStorage.removeItem('audioState');
+        } else {
+            // Try autoplay on fresh page load
+            attemptAutoplay();
+        }
+
+        // Hide audio player on mobile after 3 seconds
+        let playerTimeout;
+        const audioPlayer = document.getElementById('audio-player');
+        
+        function hidePlayerOnMobile() {
+            if (window.innerWidth < 768) {
+                playerTimeout = setTimeout(() => {
+                    audioPlayer.style.transform = 'translateX(100%)';
+                    audioPlayer.style.opacity = '0.3';
+                }, 3000);
+            }
+        }
+
+        audioPlayer.addEventListener('mouseenter', () => {
+            clearTimeout(playerTimeout);
+            audioPlayer.style.transform = 'translateX(0)';
+            audioPlayer.style.opacity = '1';
+        });
+
+        audioPlayer.addEventListener('mouseleave', hidePlayerOnMobile);
+        
+        // Initial setup
+        hidePlayerOnMobile();
     </script>
 </body>
 </html>
