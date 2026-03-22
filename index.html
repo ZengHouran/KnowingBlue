@@ -213,7 +213,7 @@
     </div>
 
     <audio id="background-audio" loop>
-        <source src="./public/music/Featherfall.mp3" type="audio/mpeg">
+        <source src="./public/music/music.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -441,14 +441,18 @@
 
         let isPlaying = false;
 
-        // Save audio state before page unload
+        // Save audio state before page unload (only for in-page navigation)
         window.addEventListener('beforeunload', () => {
-            localStorage.setItem('audioState', JSON.stringify({
-                currentTime: audio.currentTime,
-                isPlaying: !audio.paused,
-                volume: audio.volume,
-                muted: audio.muted
-            }));
+            if (performance.getEntriesByType('navigation')[0]?.type !== 'reload') {
+                sessionStorage.setItem('audioState', JSON.stringify({
+                    currentTime: audio.currentTime,
+                    isPlaying: !audio.paused,
+                    volume: audio.volume,
+                    muted: audio.muted
+                }));
+            } else {
+                sessionStorage.removeItem('audioState');
+            }
         });
 
         // Format time in MM:SS
@@ -495,7 +499,7 @@
         });
 
         // Restore audio state on page load
-        const savedState = localStorage.getItem('audioState');
+        const savedState = sessionStorage.getItem('audioState');
         let hasAttemptedPlay = false;
         
         // Function to attempt autoplay
@@ -550,7 +554,7 @@
             attemptAutoplay();
             
             // Clear the saved state after restoration
-            localStorage.removeItem('audioState');
+            sessionStorage.removeItem('audioState');
         } else {
             // Try autoplay on fresh page load
             attemptAutoplay();
