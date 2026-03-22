@@ -35,7 +35,7 @@
             transform: translateY(0);
         }
         .hero-bg {
-            background-image: url('./public/pictures/origin5f51e91125495953b87f3f30.jpg');
+            background-image: url('./public/pictures/bgindex.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -91,39 +91,53 @@
                 rgba(59, 130, 246, 0.3) 50%, 
                 transparent 100%);
         }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+        
+        #mobile-menu.menu-open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased blue-mist">
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
         <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
-            <a href="#home" class="text-xl font-serif font-medium tracking-tight text-gray-900 hover:text-blue-600 transition-colors">
+            <a href="#home" class="text-xl font-serif font-medium tracking-tight text-white hover:text-gray-200 transition-colors">
                 KnowingBlue
             </a>
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-sm text-gray-900 hover:text-blue-600 transition-colors" data-nav="home">首页</a>
-                <a href="vision.html" class="text-sm text-gray-900 hover:text-blue-600 transition-colors" data-nav="vision">愿景</a>
+                <a href="#home" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                <a href="vision.html" class="text-sm text-white hover:text-gray-200 transition-colors" data-nav="vision">愿景</a>
                 
                 <!-- Language Switcher -->
                 <div class="relative">
-                    <button id="lang-switcher" class="text-sm text-gray-900 hover:text-blue-600 transition-colors flex items-center space-x-1">
+                    <button id="lang-switcher" class="text-sm text-white hover:text-gray-200 transition-colors flex items-center space-x-1">
                         <span id="current-lang">中文</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-blue-200/30 py-2 min-w-[100px] blue-glow">
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover-blue-mist" data-lang="zh">中文</button>
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover-blue-mist" data-lang="en">English</button>
-                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover-blue-mist" data-lang="ja">日本語</button>
+                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[100px]">
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</button>
+                        <button class="lang-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</button>
                     </div>
                 </div>
             </nav>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-900">
+            <button id="mobile-menu-btn" class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -131,55 +145,57 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-blue-200/20">
-            <nav class="container mx-auto px-4 py-4 space-y-2">
-                <a href="#home" class="block text-sm text-gray-900 hover:text-blue-600 transition-colors" data-nav="home">首页</a>
-                <a href="vision.html" class="block text-sm text-gray-900 hover:text-blue-600 transition-colors" data-nav="vision">愿景</a>
-                
-                <!-- Mobile Language Switcher -->
-                <div class="border-t border-blue-200/20 pt-2 mt-2">
-                    <div class="text-xs text-gray-500 mb-2">语言 / Language</div>
-                    <div class="flex space-x-2">
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-blue-50 hover:bg-blue-100 transition-colors" data-lang="zh">中文</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-blue-50 hover:bg-blue-100 transition-colors" data-lang="en">EN</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-blue-50 hover:bg-blue-100 transition-colors" data-lang="ja">日本語</button>
-                    </div>
+        <div id="mobile-menu" class="md:hidden fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between mb-6">
+                    <a href="#home" class="text-xl font-serif font-medium tracking-tight text-white">
+                        KnowingBlue
+                    </a>
+                    <button id="close-menu-btn" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
                 </div>
-            </nav>
+                <nav class="space-y-4">
+                    <a href="#home" class="block text-lg text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                    <a href="vision.html" class="block text-lg text-white hover:text-gray-200 transition-colors" data-nav="vision">愿景</a>
+                    
+                    <!-- Mobile Language Switcher -->
+                    <div class="border-t border-white/20 pt-4 mt-4">
+                        <div class="text-sm text-white/60 mb-3">语言 / Language</div>
+                        <div class="flex space-x-3">
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="zh">中文</button>
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="en">EN</button>
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="ja">日本語</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main class="relative">
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center overflow-hidden hero-bg">
-            <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/70 to-white/95"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-transparent to-blue-100/30"></div>
-            
-            <!-- Subtle decorative elements -->
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/15 rounded-full blur-3xl gentle-float"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-300/15 rounded-full blur-3xl gentle-float" style="animation-delay: 2s;"></div>
+            <div class="absolute inset-0 bg-black/30"></div>
             
             <div class="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10 max-w-4xl">
                 <div class="max-w-3xl mx-auto text-center">
                     <div class="fade-in" data-delay="200">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-gray-900 leading-tight mb-6 text-gradient-blue pb-2">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-tight mb-6">
                             KnowingBlue
                         </h1>
                     </div>
                     
                     <div class="fade-in" data-delay="300">
-                        <p class="text-lg md:text-xl text-gray-800 mb-4" data-text="hero-subtitle">
-                            感性驱动认知，品味塑造体验。
-                        </p>
-                        <p class="text-lg md:text-xl text-gray-800 mb-8" data-text="hero-description">
+                        <p class="text-lg md:text-xl text-white/90 mb-8" data-text="hero-description">
                             我们专注于感性与认知心理的创意探索，用设计触达内心深处。
                         </p>
                     </div>
                     
-                    <div class="jp-separator w-full max-w-md mx-auto my-8"></div>
-                    
                     <div class="fade-in" data-delay="400">
-                        <p class="text-sm text-gray-600 mt-8" data-text="copyright">
+                        <p class="text-sm text-white/70 mt-8" data-text="copyright">
                             © 2026 KnowingBlue. 保留所有权利。
                         </p>
                     </div>
@@ -282,7 +298,21 @@
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu
+        document.getElementById('close-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.remove('menu-open');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.remove('menu-open');
+            });
         });
 
         // Fade in animation on scroll
@@ -315,12 +345,7 @@
                 'vision': '愿景',
                 
                 // Hero Section
-                'hero-subtitle': '感性驱动认知，品味塑造体验。',
                 'hero-description': '我们专注于感性与认知心理的创意探索，用设计触达内心深处。',
-                
-
-                
-
                 
                 // Footer
                 'copyright': '© 2026 KnowingBlue. 保留所有权利。'
@@ -331,12 +356,7 @@
                 'vision': 'Vision',
                 
                 // Hero Section
-                'hero-subtitle': 'Emotion drives cognition, taste shapes experience.',
                 'hero-description': 'We focus on creative exploration of emotion and cognitive psychology, using design to reach the depths of the heart.',
-                
-
-                
-
                 
                 // Footer
                 'copyright': '© 2026 KnowingBlue. All rights reserved.'
@@ -347,10 +367,7 @@
                 'vision': 'ビジョン',
                 
                 // Hero Section
-                'hero-subtitle': '感性が認知を駆動し、品味が体験を形作る。',
                 'hero-description': '私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。',
-                
-
                 
                 // Footer
                 'copyright': '© 2026 KnowingBlue. 全著作権所有。'
@@ -417,7 +434,7 @@
             option.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 switchLanguage(lang);
-                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('menu-open');
             });
         });
 

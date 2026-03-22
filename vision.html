@@ -36,9 +36,23 @@
             transform: translateY(0);
         }
         .vision-hero-bg {
-            background-image: url('./public/pictures/origin5f51e91125495953b87f3f30.jpg');
+            background-image: url('./public/pictures/bgvision.jpg');
             background-size: cover;
             background-position: center;
+        }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+        
+        #mobile-menu.menu-open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -80,21 +94,33 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
-            <nav class="container mx-auto px-4 py-4 space-y-2">
-                <a href="index.html" class="block text-sm text-gray-900 hover:text-orangery-500 transition-colors" data-nav="home">首页</a>
-                <a href="vision.html" class="block text-sm text-orangery-500 font-medium" data-nav="vision">愿景</a>
-                
-                <!-- Mobile Language Switcher -->
-                <div class="border-t border-gray-200 pt-2 mt-2">
-                    <div class="text-xs text-gray-500 mb-2">语言 / Language</div>
-                    <div class="flex space-x-2">
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="zh">中文</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="en">EN</button>
-                        <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200 transition-colors" data-lang="ja">日本語</button>
-                    </div>
+        <div id="mobile-menu" class="md:hidden fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between mb-6">
+                    <a href="index.html" class="text-xl font-serif font-medium tracking-tight text-white">
+                        KnowingBlue
+                    </a>
+                    <button id="close-menu-btn" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
                 </div>
-            </nav>
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-lg text-white hover:text-gray-200 transition-colors" data-nav="home">首页</a>
+                    <a href="vision.html" class="block text-lg text-white hover:text-gray-200 transition-colors" data-nav="vision">愿景</a>
+                    
+                    <!-- Mobile Language Switcher -->
+                    <div class="border-t border-white/20 pt-4 mt-4">
+                        <div class="text-sm text-white/60 mb-3">语言 / Language</div>
+                        <div class="flex space-x-3">
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="zh">中文</button>
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="en">EN</button>
+                            <button class="lang-option-mobile px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 transition-colors rounded" data-lang="ja">日本語</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -177,7 +203,7 @@
         <footer class="bg-gray-50 py-12">
             <div class="container mx-auto px-4 md:px-6 text-center">
                 <p class="text-sm text-gray-500" data-text="copyright">
-                    © 2025 KnowingBlue. 保留所有权利。
+                    © 2026 KnowingBlue. 保留所有权利。
                 </p>
             </div>
         </footer>
@@ -211,7 +237,21 @@
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu
+        document.getElementById('close-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.remove('menu-open');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.remove('menu-open');
+            });
         });
 
         // Fade in animation on scroll
@@ -257,7 +297,7 @@
                 'connection-desc': '建立深层次的情感连接和共鸣',
                 
                 // Footer
-                'copyright': '© 2025 KnowingBlue. 保留所有权利。'
+                'copyright': '© 2026 KnowingBlue. 保留所有权利。'
             },
             en: {
                 // Navigation
@@ -278,7 +318,7 @@
                 'connection-desc': 'Building deep emotional connections and resonance',
                 
                 // Footer
-                'copyright': '© 2025 KnowingBlue. All rights reserved.'
+                'copyright': '© 2026 KnowingBlue. All rights reserved.'
             },
             ja: {
                 // Navigation
@@ -289,7 +329,7 @@
                 'vision-page-title': 'ビジョン',
                 'vision-page-subtitle': '感性と認知の境界を探求し、デザインで心と世界をつなぐ',
                 'vision-title': '私たちのビジョン',
-                'vision-content1': 'KnowingBlueは感性と認知心理学の交差点を探求することに専念しています。私たちは、真に心を動かすデザインは人間の感情と認知パターンの深い理解から生まれると信じています。',
+                'vision-content1': 'KnowingBlue は感性と認知心理学の交差点を探求することに専念しています。私たちは、真に心を動かすデザインは人間の感情と認知パターンの深い理解から生まれると信じています。',
                 'vision-content2': '感性的思考と理性的分析を組み合わせることで、美しく深い意味を持つ作品を創造し、すべての体験がユーザーの心の奥深くに届くようにします。',
                 'sensibility-title': '感性',
                 'sensibility-desc': '感情に駆動されたデザインで温かい体験を創造',
@@ -299,7 +339,7 @@
                 'connection-desc': '深い感情的つながりと共鳴の構築',
                 
                 // Footer
-                'copyright': '© 2025 KnowingBlue. 全著作権所有。'
+                'copyright': '© 2026 KnowingBlue. 全著作権所有。'
             }
         };
 
@@ -374,14 +414,6 @@
             }
         });
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-
-
         // Language switcher event listeners
         document.getElementById('lang-switcher').addEventListener('click', function() {
             document.getElementById('lang-menu').classList.toggle('hidden');
@@ -401,7 +433,7 @@
             option.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 switchLanguage(lang);
-                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('menu-open');
             });
         });
 
