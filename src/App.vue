@@ -116,9 +116,12 @@ const audio = ref(null);
 const isPlaying = ref(false);
 const progress = ref(0);
 const playerHidden = ref(false);
+const typedHeroTitle = ref("");
+const typedHeroDescription = ref("");
 
 let observer;
 let mobileHideTimer;
+let typewriterTimer;
 let removeInteractionHandlers = () => {};
 
 const t = computed(() => translations[language.value]);
@@ -322,8 +325,45 @@ function syncMobileMenuLock() {
   document.body.classList.toggle("mobile-menu-open", isMenuOpen.value);
 }
 
+function startHeroTypewriter() {
+  clearTimeout(typewriterTimer);
+  typedHeroTitle.value = "";
+  typedHeroDescription.value = "";
+
+  if (isVision.value) return;
+
+  const title = "KnowingBlue";
+  const text = t.value.heroDescription;
+  let index = 0;
+
+  const typeTitle = () => {
+    typedHeroTitle.value = title.slice(0, index);
+
+    if (index < title.length) {
+      index += 1;
+      typewriterTimer = window.setTimeout(typeTitle, 95);
+      return;
+    }
+
+    index = 0;
+    typewriterTimer = window.setTimeout(typeDescription, 160);
+  };
+
+  const typeDescription = () => {
+    typedHeroDescription.value = text.slice(0, index);
+
+    if (index < text.length) {
+      index += 1;
+      typewriterTimer = window.setTimeout(typeDescription, 38);
+    }
+  };
+
+  typeTitle();
+}
+
 watch([language, route], async () => {
   syncMeta();
+  startHeroTypewriter();
   await nextTick();
   observeFadeIn();
 });
@@ -333,6 +373,7 @@ watch(isMenuOpen, syncMobileMenuLock);
 onMounted(() => {
   handleScroll();
   syncMeta();
+  startHeroTypewriter();
   observeFadeIn();
 
   const savedState = sessionStorage.getItem("audioState");
@@ -357,6 +398,7 @@ onMounted(() => {
 onUnmounted(() => {
   observer?.disconnect();
   clearTimeout(mobileHideTimer);
+  clearTimeout(typewriterTimer);
   document.body.classList.remove("mobile-menu-open");
   removeInteractionHandlers();
   window.removeEventListener("popstate", handlePopState);
@@ -448,10 +490,24 @@ onUnmounted(() => {
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <div class="fade-in" data-delay="200">
-            <h1>KnowingBlue</h1>
+            <h1 class="typewriter-heading" aria-label="KnowingBlue">
+              <span aria-hidden="true">{{ typedHeroTitle }}</span>
+              <span
+                v-if="typedHeroTitle !== 'KnowingBlue'"
+                class="typewriter-cursor title-cursor"
+                aria-hidden="true"
+              ></span>
+            </h1>
           </div>
           <div class="fade-in" data-delay="300">
-            <p>{{ t.heroDescription }}</p>
+            <p class="typewriter-text" :aria-label="t.heroDescription">
+              <span aria-hidden="true">{{ typedHeroDescription }}</span>
+              <span
+                v-if="typedHeroTitle === 'KnowingBlue' && typedHeroDescription.length > 0 && typedHeroDescription !== t.heroDescription"
+                class="typewriter-cursor"
+                aria-hidden="true"
+              ></span>
+            </p>
           </div>
           <div class="fade-in" data-delay="400">
             <small>{{ t.copyright }}</small>

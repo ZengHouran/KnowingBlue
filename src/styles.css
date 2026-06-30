@@ -275,6 +275,32 @@ button {
   line-height: 1.7;
 }
 
+.hero-content .typewriter-text {
+  min-height: calc(2lh + 12px);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.16em;
+  margin-left: 3px;
+  vertical-align: -0.16em;
+  background: rgba(255, 255, 255, 0.9);
+  animation: typewriter-caret 900ms steps(2, jump-none) infinite;
+}
+
+@keyframes typewriter-caret {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .hero-content small {
   color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
