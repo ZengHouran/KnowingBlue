@@ -509,10 +509,8 @@ onUnmounted(() => {
               ></span>
             </p>
           </div>
-          <div class="fade-in" data-delay="400">
-            <small>{{ t.copyright }}</small>
-          </div>
         </div>
+        <small class="home-copyright">{{ t.copyright }}</small>
       </section>
 
       <template v-else>
