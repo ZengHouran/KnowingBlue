@@ -1,13 +1,10 @@
 <script setup>
 import {
   ChevronDown,
-  Heart,
   Menu,
   PauseCircle,
   Play,
-  Sparkles,
   X,
-  Zap,
 } from "@lucide/vue";
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 
@@ -131,17 +128,14 @@ const progressOffset = computed(() => 125.6 - progress.value * 125.6);
 
 const pillars = computed(() => [
   {
-    icon: Heart,
     title: t.value.sensibilityTitle,
     description: t.value.sensibilityDesc,
   },
   {
-    icon: Sparkles,
     title: t.value.tasteTitle,
     description: t.value.tasteDesc,
   },
   {
-    icon: Zap,
     title: t.value.connectionTitle,
     description: t.value.connectionDesc,
   },
@@ -486,9 +480,7 @@ onUnmounted(() => {
                 class="pillar fade-in"
                 :data-delay="200 + index * 100"
               >
-                <div class="pillar-icon">
-                  <component :is="pillar.icon" :size="24" aria-hidden="true" />
-                </div>
+                <span class="pillar-index">{{ String(index + 1).padStart(2, "0") }}</span>
                 <h3>{{ pillar.title }}</h3>
                 <p>{{ pillar.description }}</p>
               </article>

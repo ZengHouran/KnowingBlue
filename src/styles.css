@@ -312,37 +312,40 @@ button {
 .pillar-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  gap: 42px;
 }
 
 .pillar {
-  min-height: 176px;
-  text-align: center;
+  position: relative;
+  min-height: 150px;
+  padding-top: 24px;
+  text-align: left;
+  border-top: 1px solid rgba(30, 58, 95, 0.12);
 }
 
-.pillar-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 17px;
-  border-radius: 50%;
-  color: #ffffff;
-  background: var(--orange);
+.pillar-index {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(30, 58, 95, 0.46);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .pillar h3 {
-  margin: 0 0 9px;
-  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
   font-weight: 500;
+  line-height: 1.2;
 }
 
 .pillar p {
   margin: 0;
   color: #4b5563;
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.76;
 }
 
 .site-footer {
@@ -474,10 +477,11 @@ button {
 
   .pillar-grid {
     grid-template-columns: 1fr;
-    gap: 34px;
+    gap: 30px;
   }
 
   .pillar {
     min-height: auto;
+    padding-top: 21px;
   }
 }
