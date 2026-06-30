@@ -318,11 +318,17 @@ function syncMeta() {
     ?.setAttribute("content", isVision.value ? meta.visionDescription : meta.homeDescription);
 }
 
+function syncMobileMenuLock() {
+  document.body.classList.toggle("mobile-menu-open", isMenuOpen.value);
+}
+
 watch([language, route], async () => {
   syncMeta();
   await nextTick();
   observeFadeIn();
 });
+
+watch(isMenuOpen, syncMobileMenuLock);
 
 onMounted(() => {
   handleScroll();
@@ -351,6 +357,7 @@ onMounted(() => {
 onUnmounted(() => {
   observer?.disconnect();
   clearTimeout(mobileHideTimer);
+  document.body.classList.remove("mobile-menu-open");
   removeInteractionHandlers();
   window.removeEventListener("popstate", handlePopState);
   window.removeEventListener("hashchange", handleHashChange);
@@ -411,8 +418,8 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <div class="mobile-menu" :class="{ visible: isMenuOpen }">
-        <div class="mobile-menu-inner">
+      <div class="mobile-menu" :class="{ visible: isMenuOpen }" @click.self="isMenuOpen = false">
+        <div class="mobile-menu-inner" @click.stop>
           <nav aria-label="Mobile navigation">
             <button type="button" @click="navigate('home')">{{ t.home }}</button>
             <button type="button" @click="navigate('vision')">{{ t.vision }}</button>
