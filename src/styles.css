@@ -76,6 +76,11 @@ button {
 
 .site-header.open {
   color: #ffffff;
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .header-inner,
@@ -170,15 +175,16 @@ button {
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 45;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-12px);
+  transform: translateY(-8px);
   transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
-  background: rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(24px) saturate(145%);
-  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  background: rgba(15, 23, 42, 0.76);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  color: #ffffff;
 }
 
 .mobile-menu.visible {
@@ -202,6 +208,7 @@ button {
   padding: 11px 0;
   text-align: left;
   font-size: 18px;
+  color: inherit;
 }
 
 .mobile-language {
@@ -228,11 +235,38 @@ button {
   padding: 0 14px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
+  color: inherit;
 }
 
 .mobile-language button.selected,
 .mobile-language button:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu.theme-light {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  color: var(--ink);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.mobile-menu.theme-light .mobile-language {
+  border-top-color: var(--line);
+}
+
+.mobile-menu.theme-light .mobile-language span {
+  color: var(--muted);
+}
+
+.mobile-menu.theme-light .mobile-language button {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.mobile-menu.theme-light .mobile-language button.selected,
+.mobile-menu.theme-light .mobile-language button:hover {
+  background: rgba(15, 23, 42, 0.12);
 }
 
 .hero {
@@ -253,8 +287,17 @@ button {
   background-image: url("/pictures/bgvision.jpg");
 }
 
-.works-hero {
-  background-image: url("/pictures/bluesky.jpg");
+.works-shell .site-header {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.works-shell .site-header.open {
+  color: var(--ink);
 }
 
 .hero-overlay {
@@ -421,7 +464,7 @@ button {
 }
 
 .works-content-section {
-  padding: 88px 0 96px;
+  padding: 120px 0 96px;
 }
 
 .works-wrap {
@@ -439,33 +482,43 @@ button {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   padding: 24px 26px 22px;
   border-radius: 24px;
+  isolation: isolate;
   transition: transform 260ms ease, box-shadow 260ms ease;
 }
 
-.app-card::after {
-  content: "";
+.app-card-bg {
   position: absolute;
   inset: 0;
-  background: rgba(10, 18, 40, 0.4);
+  z-index: 0;
+  border-radius: 24px;
+  overflow: hidden;
   pointer-events: none;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
 }
 
-.app-card > * {
+.app-card > *:not(.app-card-bg) {
   position: relative;
   z-index: 1;
 }
 
 .app-cover {
   position: absolute;
-  z-index: 0;
-  inset: -120px;
+  inset: -60px;
   background-color: #2b3a55;
   background-size: cover;
   background-position: center;
   filter: blur(48px) saturate(1.55);
+  transform: translateZ(0);
+}
+
+.app-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 40, 0.4);
 }
 
 .app-card:hover {
@@ -679,7 +732,7 @@ button {
   }
 
   .works-content-section {
-    padding: 64px 0 70px;
+    padding: 104px 0 70px;
   }
 
   .works-wrap {

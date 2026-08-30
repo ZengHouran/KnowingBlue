@@ -18,8 +18,6 @@ const translations = {
     heroDescription: "我们专注于感性与认知心理的创意探索，用设计触达内心深处。",
     visionPageTitle: "愿景",
     visionPageSubtitle: "探索感性与认知的边界，用设计连接内心与世界",
-    worksPageTitle: "作品",
-    worksPageSubtitle: "每一件作品，都是感性与理性的一次相遇",
     worksStoreLink: "在 App Store 查看",
     worksDeveloperLink: "访问开发者主页",
     visionTitle: "我们的愿景",
@@ -45,8 +43,6 @@ const translations = {
     visionPageTitle: "Vision",
     visionPageSubtitle:
       "Exploring the boundaries of emotion and cognition, connecting hearts with the world through design",
-    worksPageTitle: "Works",
-    worksPageSubtitle: "Every piece is an encounter between sensibility and reason",
     worksStoreLink: "View on App Store",
     worksDeveloperLink: "Visit Developer Page",
     visionTitle: "Our Vision",
@@ -71,8 +67,6 @@ const translations = {
       "私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。",
     visionPageTitle: "ビジョン",
     visionPageSubtitle: "感性と認知の境界を探求し、デザインで心と世界をつなぐ",
-    worksPageTitle: "作品",
-    worksPageSubtitle: "すべての作品は、感性と理性の出会い",
     worksStoreLink: "App Store で見る",
     worksDeveloperLink: "開発者ページを見る",
     visionTitle: "私たちのビジョン",
@@ -566,7 +560,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="site-shell" :class="{ 'home-shell': isHome }">
+  <div class="site-shell" :class="{ 'home-shell': isHome, 'works-shell': isWorks }">
     <header class="site-header" :class="{ scrolled: hasScrolled, open: isMenuOpen }">
       <div class="header-inner">
         <button class="brand-link" type="button" @click="navigate('home')">KnowingBlue</button>
@@ -618,30 +612,39 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <div class="mobile-menu" :class="{ visible: isMenuOpen }" @click.self="isMenuOpen = false">
-        <div class="mobile-menu-inner" @click.stop>
-          <nav aria-label="Mobile navigation">
-            <button type="button" @click="navigate('home')">{{ t.home }}</button>
-            <button type="button" @click="navigate('works')">{{ t.works }}</button>
-            <button type="button" @click="navigate('vision')">{{ t.vision }}</button>
-          </nav>
+      <Teleport to="body">
+        <div
+          class="mobile-menu"
+          :class="{
+            visible: isMenuOpen,
+            'theme-light': isWorks || hasScrolled,
+          }"
+          @click.self="isMenuOpen = false"
+        >
+          <div class="mobile-menu-inner" @click.stop>
+            <nav aria-label="Mobile navigation">
+              <button type="button" @click="navigate('home')">{{ t.home }}</button>
+              <button type="button" @click="navigate('works')">{{ t.works }}</button>
+              <button type="button" @click="navigate('vision')">{{ t.vision }}</button>
+            </nav>
 
-          <div class="mobile-language">
-            <span>{{ t.languageLabel }}</span>
-            <div>
-              <button
-                v-for="(name, key) in langNames"
-                :key="key"
-                type="button"
-                :class="{ selected: language === key }"
-                @click="changeLanguage(key)"
-              >
-                {{ key === "en" ? "EN" : name }}
-              </button>
+            <div class="mobile-language">
+              <span>{{ t.languageLabel }}</span>
+              <div>
+                <button
+                  v-for="(name, key) in langNames"
+                  :key="key"
+                  type="button"
+                  :class="{ selected: language === key }"
+                  @click="changeLanguage(key)"
+                >
+                  {{ key === "en" ? "EN" : name }}
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Teleport>
     </header>
 
     <main>
@@ -714,18 +717,6 @@ onUnmounted(() => {
       </template>
 
       <template v-else>
-        <section class="hero works-hero">
-          <div class="hero-overlay"></div>
-          <div class="hero-content">
-            <div class="fade-in" data-delay="200">
-              <h1>{{ t.worksPageTitle }}</h1>
-            </div>
-            <div class="fade-in" data-delay="300">
-              <p>{{ t.worksPageSubtitle }}</p>
-            </div>
-          </div>
-        </section>
-
         <section class="works-content-section">
           <div class="works-wrap">
             <div class="app-grid">
@@ -735,11 +726,13 @@ onUnmounted(() => {
                 class="app-card fade-in"
                 :data-delay="120 + (index % 3) * 90"
               >
-                <div
-                  class="app-cover"
-                  :style="{ backgroundImage: 'url(' + app.icon + ')' }"
-                  aria-hidden="true"
-                ></div>
+                <div class="app-card-bg" aria-hidden="true">
+                  <div
+                    class="app-cover"
+                    :style="{ backgroundImage: 'url(' + app.icon + ')' }"
+                  ></div>
+                  <div class="app-card-overlay"></div>
+                </div>
                 <img class="app-icon" :src="app.icon" :alt="app.name[language]" loading="lazy" />
                 <h3 class="app-name">{{ app.name[language] }}</h3>
                 <p class="app-tagline">{{ app.tagline[language] }}</p>
@@ -769,7 +762,7 @@ onUnmounted(() => {
 
     <div
       class="audio-player"
-      :class="{ hiddenMobile: playerHidden, visionStyle: isVision || isWorks }"
+      :class="{ hiddenMobile: playerHidden, visionStyle: isVision }"
       @mouseenter="showPlayer"
       @mouseleave="schedulePlayerHide"
       @focusin="showPlayer"
