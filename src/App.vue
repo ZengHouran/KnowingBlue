@@ -1,5 +1,6 @@
 <script setup>
 import {
+  ArrowUpRight,
   ChevronDown,
   Menu,
   PauseCircle,
@@ -11,11 +12,16 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 const translations = {
   zh: {
     home: "首页",
+    works: "作品",
     vision: "愿景",
     languageLabel: "语言 / Language",
     heroDescription: "我们专注于感性与认知心理的创意探索，用设计触达内心深处。",
     visionPageTitle: "愿景",
     visionPageSubtitle: "探索感性与认知的边界，用设计连接内心与世界",
+    worksPageTitle: "作品",
+    worksPageSubtitle: "每一件作品，都是感性与理性的一次相遇",
+    worksStoreLink: "在 App Store 查看",
+    worksDeveloperLink: "访问开发者主页",
     visionTitle: "我们的愿景",
     visionContent1:
       "KnowingBlue 致力于探索感性与认知心理学的交汇点，我们相信真正触动人心的设计源于对人类情感和认知模式的深度理解。",
@@ -31,6 +37,7 @@ const translations = {
   },
   en: {
     home: "Home",
+    works: "Works",
     vision: "Vision",
     languageLabel: "Language",
     heroDescription:
@@ -38,6 +45,10 @@ const translations = {
     visionPageTitle: "Vision",
     visionPageSubtitle:
       "Exploring the boundaries of emotion and cognition, connecting hearts with the world through design",
+    worksPageTitle: "Works",
+    worksPageSubtitle: "Every piece is an encounter between sensibility and reason",
+    worksStoreLink: "View on App Store",
+    worksDeveloperLink: "Visit Developer Page",
     visionTitle: "Our Vision",
     visionContent1:
       "KnowingBlue is dedicated to exploring the intersection of emotion and cognitive psychology. We believe that truly touching design stems from a deep understanding of human emotions and cognitive patterns.",
@@ -53,12 +64,17 @@ const translations = {
   },
   ja: {
     home: "ホーム",
+    works: "作品",
     vision: "ビジョン",
     languageLabel: "言語 / Language",
     heroDescription:
       "私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。",
     visionPageTitle: "ビジョン",
     visionPageSubtitle: "感性と認知の境界を探求し、デザインで心と世界をつなぐ",
+    worksPageTitle: "作品",
+    worksPageSubtitle: "すべての作品は、感性と理性の出会い",
+    worksStoreLink: "App Store で見る",
+    worksDeveloperLink: "開発者ページを見る",
     visionTitle: "私たちのビジョン",
     visionContent1:
       "KnowingBlue は感性と認知心理学の交差点を探求することに専念しています。私たちは、真に心を動かすデザインは人間の感情と認知パターンの深い理解から生まれると信じています。",
@@ -82,6 +98,9 @@ const metaByLanguage = {
       "KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。",
     visionDescription:
       "了解KnowingBlue的愿景 - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。",
+    worksTitle: "作品 - KnowingBlue",
+    worksDescription:
+      "KnowingBlue 的作品 - 由曾厚然打造的 iOS 应用：SolarFocus、Zemi Note、App Collector、Glint、Appilot 等。",
   },
   en: {
     homeTitle: "KnowingBlue - Emotional Design Studio",
@@ -90,6 +109,9 @@ const metaByLanguage = {
       "KnowingBlue - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
     visionDescription:
       "Learn about KnowingBlue's vision - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
+    worksTitle: "Works - KnowingBlue",
+    worksDescription:
+      "Works by KnowingBlue - iOS apps crafted by Zeng Houran: SolarFocus, Zemi Note, App Collector, Glint, Appilot, and more.",
   },
   ja: {
     homeTitle: "KnowingBlue - 感性デザインスタジオ",
@@ -98,6 +120,9 @@ const metaByLanguage = {
       "KnowingBlue - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
     visionDescription:
       "KnowingBlueのビジョンについて - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
+    worksTitle: "作品 - KnowingBlue",
+    worksDescription:
+      "KnowingBlue の作品 - Zeng Houran が手がけた iOS アプリ：SolarFocus、Zemi Note、App Collector、Glint、Appilot など。",
   },
 };
 
@@ -106,6 +131,124 @@ const langNames = {
   en: "English",
   ja: "日本語",
 };
+
+const developerId = "1804756359";
+
+const worksApps = [
+  {
+    id: "6744120438",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/7a/19/377a1987-6c22-9ba7-2466-dda144b1616d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "SolarFocus - 专注行星",
+      en: "SolarFocus",
+      ja: "集中の星たち - SolarFocus",
+    },
+    tagline: {
+      zh: "把太阳系变成专注的舞台，行星轨道实时运转，让每一次计时都充满想象。",
+      en: "Turn the solar system into your focus stage — planets orbit in real time while you work.",
+      ja: "太陽系を集中の舞台に。リアルタイムで動く惑星の軌道とともに、時間に意味を与える。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6744120438",
+      us: "https://apps.apple.com/us/app/id6744120438",
+      jp: "https://apps.apple.com/jp/app/id6744120438",
+    },
+  },
+  {
+    id: "6745965004",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c0/01/86/c00186c8-1f84-8aa2-1a5f-a19d8a4befe5/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "Zemi Note - 语音识别翻译笔记",
+      en: "Zemi Note - Voice Translation",
+      ja: "ゼミノート - 音声認識翻訳ノート",
+    },
+    tagline: {
+      zh: "实时语音转文字并自动翻译成母语，为跨语言沟通保存每一次重要对话。",
+      en: "Real-time speech-to-text with instant translation — capture every conversation abroad.",
+      ja: "音声をリアルタイムで文字起こしし、母語へ自動翻訳。留学や異文化コミュニケーションを支える。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6745965004",
+      us: "https://apps.apple.com/us/app/id6745965004",
+      jp: "https://apps.apple.com/jp/app/id6745965004",
+    },
+  },
+  {
+    id: "6749210346",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/16/ad/b316ad9b-4fab-f346-56bd-354bf13aa206/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "App Collector：应用收藏夹",
+      en: "App Collector: Your Favorites",
+      ja: "App Collector：お気に入り管理",
+    },
+    tagline: {
+      zh: "为 App 爱好者与设计师打造的灵感收藏夹，统一收藏、分类和管理你关注的应用。",
+      en: "A favorites library for app lovers, designers and developers — collect, organize and revisit inspiring apps.",
+      ja: "App を愛する人、デザイナー、開発者のためのインスピレーション庫。お気に入りをまとめて管理。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6749210346",
+      us: "https://apps.apple.com/us/app/id6749210346",
+      jp: "https://apps.apple.com/jp/app/id6749210346",
+    },
+  },
+  {
+    id: "6757810839",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/28/80/fc2880b0-4767-de1c-b454-7b60abdc39e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "Glint: 树影拼图",
+      en: "Glint: Tree Shadow Art",
+      ja: "グリント: 樹影パズル",
+    },
+    tagline: {
+      zh: "透过树影间的缝隙重塑视野，用 AI 抠图与创意填充，创作你的树影艺术。",
+      en: "Re-imagine the world through nature's gaps — create tree-shadow art with AI masking and creative fills.",
+      ja: "木漏れ日の隙間から世界を再構築する。AI が切り取る樹影に、創造性を注ぎ込む。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6757810839",
+      us: "https://apps.apple.com/us/app/id6757810839",
+      jp: "https://apps.apple.com/jp/app/id6757810839",
+    },
+  },
+  {
+    id: "6757530321",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/58/0a/78/580a7806-9db3-b815-9ee9-86c7de9ce7c7/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "Appilot: 你的应用上架神器",
+      en: "Appilot: Vibe Coding Publisher",
+      ja: "Appilot: AI駆動の配信ツール",
+    },
+    tagline: {
+      zh: "开发者的全球化效率引擎，AI 自动翻译与智能设备适配，让应用上架全球市场更简单。",
+      en: "An efficiency engine for developers — AI translation and smart device mockups make going global effortless.",
+      ja: "開発者のためのグローバル化エンジン。AI 翻訳とデバイス対応で、世界への配信を身近に。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6757530321",
+      us: "https://apps.apple.com/us/app/id6757530321",
+      jp: "https://apps.apple.com/jp/app/id6757530321",
+    },
+  },
+  {
+    id: "6790173430",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/fc/59/defc5987-8fe3-9cb2-a89d-c9f6dd981f13/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "Astral Survivors",
+      en: "Astral Survivors",
+      ja: "Astral Survivors",
+    },
+    tagline: {
+      zh: "Roguelike 星际生存动作游戏——选择你的英雄，在无尽的敌人浪潮中生存 40 分钟。",
+      en: "A roguelike survival action game — choose your hero and survive 40 minutes against the endless tide.",
+      ja: "ローグライク生存アクション。16 人のヒーローとともに、終わりのない波に立ち向かう。",
+    },
+    url: {
+      us: "https://apps.apple.com/us/app/id6790173430",
+      jp: "https://apps.apple.com/jp/app/id6790173430",
+    },
+  },
+];
 
 const language = ref(localStorage.getItem("language") || "zh");
 const route = ref(getInitialRoute());
@@ -126,7 +269,11 @@ let removeInteractionHandlers = () => {};
 
 const t = computed(() => translations[language.value]);
 const currentMeta = computed(() => metaByLanguage[language.value]);
+const isHome = computed(() => route.value === "home");
 const isVision = computed(() => route.value === "vision");
+const isWorks = computed(() => route.value === "works");
+const storefront = computed(() => ({ zh: "cn", en: "us", ja: "jp" })[language.value]);
+const developerUrl = computed(() => `https://apps.apple.com/${storefront.value}/developer/id${developerId}`);
 const progressOffset = computed(() => 125.6 - progress.value * 125.6);
 
 const pillars = computed(() => [
@@ -146,7 +293,9 @@ const pillars = computed(() => [
 
 function normalizeRoute(path) {
   const value = path.replace(/^#\/?/, "").replace(/^\//, "").replace(/\/$/, "");
-  return value === "vision" || value === "vision.html" ? "vision" : "home";
+  if (value === "vision" || value === "vision.html") return "vision";
+  if (value === "works" || value === "works.html") return "works";
+  return "home";
 }
 
 function getInitialRoute() {
@@ -155,14 +304,16 @@ function getInitialRoute() {
   if (redirect) {
     const nextUrl = new URL(redirect, window.location.origin);
     window.history.replaceState({}, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
-    return normalizeRoute(nextUrl.hash) === "vision" ? "vision" : normalizeRoute(nextUrl.pathname);
+    const fromHash = normalizeRoute(nextUrl.hash);
+    return fromHash !== "home" ? fromHash : normalizeRoute(nextUrl.pathname);
   }
 
-  return normalizeRoute(window.location.hash) === "vision" ? "vision" : normalizeRoute(window.location.pathname);
+  const fromHash = normalizeRoute(window.location.hash);
+  return fromHash !== "home" ? fromHash : normalizeRoute(window.location.pathname);
 }
 
 function navigate(nextRoute) {
-  const nextPath = nextRoute === "vision" ? "/vision" : "/";
+  const nextPath = { home: "/", works: "/works", vision: "/vision" }[nextRoute] || "/";
 
   if (window.location.pathname !== nextPath) {
     window.history.pushState({}, "", nextPath);
@@ -315,10 +466,14 @@ function showPlayer() {
 function syncMeta() {
   const meta = currentMeta.value;
   document.documentElement.lang = language.value === "zh" ? "zh-CN" : language.value;
-  document.title = isVision.value ? meta.visionTitle : meta.homeTitle;
-  document
-    .querySelector('meta[name="description"]')
-    ?.setAttribute("content", isVision.value ? meta.visionDescription : meta.homeDescription);
+  const title = isVision.value ? meta.visionTitle : isWorks.value ? meta.worksTitle : meta.homeTitle;
+  const description = isVision.value
+    ? meta.visionDescription
+    : isWorks.value
+      ? meta.worksDescription
+      : meta.homeDescription;
+  document.title = title;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", description);
 }
 
 function syncMobileMenuLock() {
@@ -330,7 +485,7 @@ function startHeroTypewriter() {
   typedHeroTitle.value = "";
   typedHeroDescription.value = "";
 
-  if (isVision.value) return;
+  if (isVision.value || isWorks.value) return;
 
   const title = "KnowingBlue";
   const text = t.value.heroDescription;
@@ -411,14 +566,17 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="site-shell" :class="{ 'home-shell': !isVision }">
+  <div class="site-shell" :class="{ 'home-shell': isHome }">
     <header class="site-header" :class="{ scrolled: hasScrolled, open: isMenuOpen }">
       <div class="header-inner">
         <button class="brand-link" type="button" @click="navigate('home')">KnowingBlue</button>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
-          <button type="button" :class="{ active: !isVision }" @click="navigate('home')">
+          <button type="button" :class="{ active: isHome }" @click="navigate('home')">
             {{ t.home }}
+          </button>
+          <button type="button" :class="{ active: isWorks }" @click="navigate('works')">
+            {{ t.works }}
           </button>
           <button type="button" :class="{ active: isVision }" @click="navigate('vision')">
             {{ t.vision }}
@@ -464,6 +622,7 @@ onUnmounted(() => {
         <div class="mobile-menu-inner" @click.stop>
           <nav aria-label="Mobile navigation">
             <button type="button" @click="navigate('home')">{{ t.home }}</button>
+            <button type="button" @click="navigate('works')">{{ t.works }}</button>
             <button type="button" @click="navigate('vision')">{{ t.vision }}</button>
           </nav>
 
@@ -486,7 +645,7 @@ onUnmounted(() => {
     </header>
 
     <main>
-      <section v-if="!isVision" class="hero home-hero">
+      <section v-if="isHome" class="hero home-hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <div class="fade-in" data-delay="200">
@@ -513,7 +672,7 @@ onUnmounted(() => {
         <small class="home-copyright">{{ t.copyright }}</small>
       </section>
 
-      <template v-else>
+      <template v-else-if="isVision">
         <section class="hero vision-hero">
           <div class="hero-overlay"></div>
           <div class="hero-content">
@@ -553,11 +712,64 @@ onUnmounted(() => {
           <p>{{ t.copyright }}</p>
         </footer>
       </template>
+
+      <template v-else>
+        <section class="hero works-hero">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <div class="fade-in" data-delay="200">
+              <h1>{{ t.worksPageTitle }}</h1>
+            </div>
+            <div class="fade-in" data-delay="300">
+              <p>{{ t.worksPageSubtitle }}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="works-content-section">
+          <div class="works-wrap">
+            <div class="app-grid">
+              <article
+                v-for="(app, index) in worksApps"
+                :key="app.id"
+                class="app-card fade-in"
+                :data-delay="120 + (index % 3) * 90"
+              >
+                <div
+                  class="app-cover"
+                  :style="{ backgroundImage: 'url(' + app.icon + ')' }"
+                  aria-hidden="true"
+                ></div>
+                <img class="app-icon" :src="app.icon" :alt="app.name[language]" loading="lazy" />
+                <h3 class="app-name">{{ app.name[language] }}</h3>
+                <p class="app-tagline">{{ app.tagline[language] }}</p>
+                <div class="app-meta">
+                  <a class="app-store-link" :href="app.url[storefront] || app.url.us" target="_blank" rel="noopener">
+                    {{ t.worksStoreLink }}
+                    <ArrowUpRight :size="15" aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <div class="works-developer fade-in" data-delay="200">
+              <a :href="developerUrl" target="_blank" rel="noopener">
+                {{ t.worksDeveloperLink }}
+                <ArrowUpRight :size="15" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <p>{{ t.copyright }}</p>
+        </footer>
+      </template>
     </main>
 
     <div
       class="audio-player"
-      :class="{ hiddenMobile: playerHidden, visionStyle: isVision }"
+      :class="{ hiddenMobile: playerHidden, visionStyle: isVision || isWorks }"
       @mouseenter="showPlayer"
       @mouseleave="schedulePlayerHide"
       @focusin="showPlayer"
