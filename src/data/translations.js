@@ -9,11 +9,15 @@ export const translations = {
     visionPageSubtitle: "探索感性与认知的边界，用设计连接内心与世界",
     worksStoreLink: "在 App Store 查看",
     worksDeveloperLink: "访问开发者主页",
-    visionTitle: "我们的愿景",
-    visionContent1:
-      "KnowingBlue 致力于探索感性与认知心理学的交汇点，我们相信真正触动人心的设计源于对人类情感和认知模式的深度理解。",
-    visionContent2:
-      "通过将感性思维与理性分析相结合，我们创造出既美观又具有深层意义的作品，让每一次体验都能触达用户的内心深处。",
+    visionTitle: "一封信",
+    letterGreeting: "你好呀，很高兴在这里遇见你。",
+    letterParagraphs: [
+      "KnowingBlue 的名字里，藏着一个 Blue。蓝是天空与海的底色，安静、开阔，也容得下情绪的深浅。我们希望亲手做出来的东西也是这样：看上去干净克制，靠近了才发现，底下藏着许多用心。",
+      "我们相信，真正打动人的设计，从来不只靠好看，而是来自对人的理解——理解一个人什么时候会疲惫，什么时候渴望专注，什么时候只是需要被轻轻接住。感性与认知心理学，是我们理解人的方式；而每一处细节，都是这门功课日复一日的练习。",
+      "你在这里看到的每一个应用，都是一个人从第一行代码，打磨到最后一枚图标。它们并不宏大，却经过了许多安静时光的反复推敲。如果某个瞬间，它们恰好让你觉得“这一刻很舒服”，那就是这些努力最好的归宿。",
+      "如果要把想说的话浓缩成三个词，大概就是下面这三个：",
+    ],
+    letterWish: "祝你，今天也有片刻的蓝。",
     sensibilityTitle: "感性",
     sensibilityDesc: "用情感驱动设计，创造有温度的体验",
     tasteTitle: "品味",
@@ -34,11 +38,15 @@ export const translations = {
       "Exploring the boundaries of emotion and cognition, connecting hearts with the world through design",
     worksStoreLink: "View on App Store",
     worksDeveloperLink: "Visit Developer Page",
-    visionTitle: "Our Vision",
-    visionContent1:
-      "KnowingBlue is dedicated to exploring the intersection of emotion and cognitive psychology. We believe that truly touching design stems from a deep understanding of human emotions and cognitive patterns.",
-    visionContent2:
-      "By combining emotional thinking with rational analysis, we create works that are both beautiful and deeply meaningful, allowing every experience to reach the depths of users' hearts.",
+    visionTitle: "A Letter",
+    letterGreeting: "Hello — so glad you found your way here.",
+    letterParagraphs: [
+      "There is a Blue hidden in KnowingBlue. Blue is the color of the sky and the sea: quiet, open, and deep enough to hold every shade of feeling. We hope the things we make feel the same — calm and restrained on the surface, with care waiting in every layer beneath.",
+      "We believe design that truly moves people never comes from looking good alone. It comes from understanding people — knowing when someone is tired, when they long for focus, and when they simply need to be gently caught. Sensibility and cognitive psychology are how we listen; every detail is a daily practice of that craft.",
+      "Every app you find here was shaped by one pair of hands, from the first line of code to the last icon. None of them are grand, but each has been refined through many quiet hours. If, for a moment, one of them makes you feel \"this feels right,\" then all of that effort has found where it belongs.",
+      "If we had to gather everything we want to say into three words, they would be the three below:",
+    ],
+    letterWish: "Wishing you a quiet moment of blue today.",
     sensibilityTitle: "Sensibility",
     sensibilityDesc: "Emotion-driven design creating warm experiences",
     tasteTitle: "Taste",
@@ -58,11 +66,15 @@ export const translations = {
     visionPageSubtitle: "感性と認知の境界を探求し、デザインで心と世界をつなぐ",
     worksStoreLink: "App Store で見る",
     worksDeveloperLink: "開発者ページを見る",
-    visionTitle: "私たちのビジョン",
-    visionContent1:
-      "KnowingBlue は感性と認知心理学の交差点を探求することに専念しています。私たちは、真に心を動かすデザインは人間の感情と認知パターンの深い理解から生まれると信じています。",
-    visionContent2:
-      "感性的思考と理性的分析を組み合わせることで、美しく深い意味を持つ作品を創造し、すべての体験がユーザーの心の奥深くに届くようにします。",
+    visionTitle: "一通の手紙",
+    letterGreeting: "こんにちは。ここで出会えたことを、嬉しく思います。",
+    letterParagraphs: [
+      "KnowingBlue という名前には、Blue が隠れています。青は空と海の色——静かで、広くて、どんな深さの気持ちも受け止められる。私たちが手がけるものも、そんなあり方を願っています。表面は静かで引き締まっていて、近づいて初めて、その下に込められた心づかいに気づいてもらえる。そんなものづくりです。",
+      "人の心を本当に動かすデザインは、美しさだけからは生まれないと信じています。誰かが疲れているとき、集中したいとき、ただそっと支えられたいとき——そうした瞬間への理解こそがすべて。感性と認知心理学は私たちの聴き方であり、一つひとつのディテールは、その日々の練習です。",
+      "ここにあるアプリは、最初の一行のコードから最後のアイコンまで、すべてひとりの手で磨き上げました。大きなものではありませんが、幾つもの静かな時間をかけて仕上げています。もしどれかが「あ、この瞬間、心地いい」と感じてもらえたなら、それがすべての努力の行き先です。",
+      "伝えたいことを三つの言葉にまとめるなら、次の三つです。",
+    ],
+    letterWish: "今日も、あなたに一瞬の青が訪れますように。",
     sensibilityTitle: "感性",
     sensibilityDesc: "感情に駆動されたデザインで温かい体験を創造",
     tasteTitle: "品味",
@@ -80,7 +92,7 @@ export const metaByLanguage = {
     homeDescription:
       "KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。",
     visionDescription:
-      "了解KnowingBlue的愿景 - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。",
+      "了解KnowingBlue的愿景 - 一封写给来访者的信。来自专注感性与认知心理的创意工作室，以感性、品味、触达为核心理念。",
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
       "KnowingBlue 的作品 - 由曾厚然打造的 iOS 应用：SolarFocus、Zemi Note、App Collector、Glint、Appilot 等。",
@@ -91,7 +103,7 @@ export const metaByLanguage = {
     homeDescription:
       "KnowingBlue - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
     visionDescription:
-      "Learn about KnowingBlue's vision - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
+      "A letter from KnowingBlue - a creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
     worksTitle: "Works - KnowingBlue",
     worksDescription:
       "Works by KnowingBlue - iOS apps crafted by Zeng Houran: SolarFocus, Zemi Note, App Collector, Glint, Appilot, and more.",
@@ -102,7 +114,7 @@ export const metaByLanguage = {
     homeDescription:
       "KnowingBlue - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
     visionDescription:
-      "KnowingBlueのビジョンについて - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
+      "KnowingBlue のビジョン - 訪れるあなたへの一通の手紙。感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
       "KnowingBlue の作品 - Zeng Houran が手がけた iOS アプリ：SolarFocus、Zemi Note、App Collector、Glint、Appilot など。",

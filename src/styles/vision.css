@@ -6,23 +6,43 @@
   max-width: 920px;
 }
 
-.vision-copy {
-  max-width: 780px;
-  margin: 0 auto 74px;
-  text-align: center;
+.letter {
+  max-width: 680px;
+  margin: 0 auto 92px;
 }
 
-.vision-copy h2 {
-  margin: 0 0 22px;
-  font-size: clamp(28px, 4vw, 36px);
+.letter h2 {
+  margin: 0 0 46px;
+  text-align: center;
+  font-size: clamp(26px, 4vw, 34px);
   font-weight: 500;
   color: var(--ink);
 }
 
-.vision-copy p {
-  margin: 0 auto 14px;
+.letter-body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.letter-greeting {
+  margin: 0 0 18px;
   color: #4b5563;
-  line-height: 1.82;
+  font-size: 15.5px;
+  line-height: 2.1;
+}
+
+.letter-paragraph {
+  margin: 0 0 16px;
+  color: #4b5563;
+  font-size: 15.5px;
+  line-height: 2.1;
+}
+
+.letter-wish {
+  margin: 36px 0 0;
+  color: #4b5563;
+  font-size: 15.5px;
+  line-height: 2.1;
 }
 
 .pillar-grid {

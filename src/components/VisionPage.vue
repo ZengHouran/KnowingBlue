@@ -35,10 +35,19 @@ const pillars = computed(() => [
 
   <section class="vision-content-section">
     <div class="content-wrap">
-      <div class="vision-copy fade-in" data-delay="100">
+      <div class="letter fade-in" data-delay="100">
         <h2>{{ t.visionTitle }}</h2>
-        <p>{{ t.visionContent1 }}</p>
-        <p>{{ t.visionContent2 }}</p>
+        <div class="letter-body">
+          <p class="letter-greeting">{{ t.letterGreeting }}</p>
+          <p
+            v-for="(paragraph, index) in t.letterParagraphs"
+            :key="index"
+            class="letter-paragraph"
+          >
+            {{ paragraph }}
+          </p>
+          <p class="letter-wish">{{ t.letterWish }}</p>
+        </div>
       </div>
 
       <div class="pillar-grid">
