@@ -1,0 +1,79 @@
+.audio-player {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  width: 48px;
+  height: 48px;
+  opacity: 0.42;
+  transition: opacity 220ms ease, transform 260ms ease;
+}
+
+.audio-player:hover,
+.audio-player:focus-within {
+  opacity: 1;
+}
+
+.audio-player.hiddenMobile {
+  transform: translateX(100%);
+  opacity: 0.3;
+}
+
+.audio-button {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: #374151;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  border-radius: 50%;
+  box-shadow:
+    0 0 60px rgba(59, 130, 246, 0.15),
+    0 0 100px rgba(37, 99, 235, 0.1),
+    inset 0 0 60px rgba(59, 130, 246, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.audio-player.visionStyle .audio-button {
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 38px rgba(15, 23, 42, 0.18);
+}
+
+.progress-ring {
+  position: absolute;
+  inset: 0;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.progress-track {
+  stroke: rgba(147, 197, 253, 0.5);
+}
+
+.progress-value {
+  stroke: #3b82f6;
+  stroke-dasharray: 125.6;
+  transition: stroke-dashoffset 180ms ease;
+}
+
+.audio-player.visionStyle .progress-track {
+  stroke: rgba(255, 255, 255, 0.2);
+}
+
+.audio-player.visionStyle .progress-value {
+  stroke: rgba(255, 255, 255, 0.66);
+}

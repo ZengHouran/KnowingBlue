@@ -1,0 +1,80 @@
+:root {
+  color: #111827;
+  background: #ffffff;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "PingFang SC",
+    "Hiragino Sans",
+    "Microsoft YaHei",
+    "Noto Sans",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --blue: #2563eb;
+  --blue-deep: #1e3a5f;
+  --orange: #f97316;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: rgba(148, 163, 184, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.home-shell {
+  background:
+    linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(37, 99, 235, 0.08) 30%, rgba(255, 255, 255, 0.02) 100%),
+    #ffffff;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-footer {
+  padding: 44px 16px;
+  text-align: center;
+  background: #f9fafb;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}

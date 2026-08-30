@@ -1,0 +1,93 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero {
+  background-image: url("/pictures/bgindex.jpg");
+}
+
+.vision-hero {
+  background-image: url("/pictures/bgvision.jpg");
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 112px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-content h1 {
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 8vw, 72px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.hero-content p {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(17px, 2.6vw, 22px);
+  line-height: 1.7;
+}
+
+.hero-content .typewriter-text {
+  min-height: calc(2lh + 12px);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.16em;
+  margin-left: 3px;
+  vertical-align: -0.16em;
+  background: rgba(255, 255, 255, 0.9);
+  animation: typewriter-caret 900ms steps(2, jump-none) infinite;
+}
+
+@keyframes typewriter-caret {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-content small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.home-copyright {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  z-index: 2;
+  width: min(100% - 32px, 1080px);
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.86);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
