@@ -811,15 +811,38 @@ button {
 
   .app-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 20px;
   }
 
   .app-card {
-    padding: 22px 20px 20px;
+    padding: 22px 22px 20px;
+    border-radius: 20px;
+  }
+
+  .app-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    border-radius: 14px;
   }
 
   .app-name {
-    font-size: 19px;
+    font-size: 17.5px;
+    margin-bottom: 7px;
+  }
+
+  .app-tagline {
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .app-meta {
+    padding-top: 14px;
+  }
+
+  .app-store-link {
+    font-size: 13px;
   }
 
   .works-developer {
