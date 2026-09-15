@@ -1,0 +1,107 @@
+.liquid-glass {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: 0 6px 24px rgba(22, 40, 48, 0.1);
+}
+
+.liquid-glass__definitions {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.liquid-glass__effects,
+.liquid-glass__backdrop,
+.liquid-glass__finish,
+.liquid-glass__rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Clip the filtered background, not the content or its keyboard focus rings. */
+.liquid-glass__effects {
+  overflow: hidden;
+}
+
+.liquid-glass__backdrop {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+@supports (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .liquid-glass__backdrop {
+    border-radius: 0;
+    background: transparent;
+    -webkit-backdrop-filter: blur(var(--glass-blur))
+      saturate(var(--glass-saturation));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+    filter: var(--glass-filter);
+  }
+}
+
+.liquid-glass__finish {
+  background: rgba(255, 255, 255, var(--glass-tint, 0.3));
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.liquid-glass__rim {
+  padding: 1px;
+  background: linear-gradient(
+    var(--glass-light-angle, 135deg),
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.12) 38%,
+    rgba(255, 255, 255, 0.18) 62%,
+    rgba(255, 255, 255, 0.75)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.liquid-glass__content {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border-radius: inherit;
+}
+
+.liquid-glass:focus-within {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-transparency: reduce),
+  (prefers-contrast: more),
+  (forced-colors: active) {
+  .liquid-glass__backdrop {
+    background: Canvas;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    filter: none;
+  }
+
+  .liquid-glass__finish,
+  .liquid-glass__rim {
+    display: none;
+  }
+
+  .liquid-glass {
+    outline: 1px solid CanvasText;
+  }
+}

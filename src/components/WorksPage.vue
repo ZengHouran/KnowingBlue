@@ -1,34 +1,30 @@
 <script setup>
 import { ArrowUpRight } from "@lucide/vue";
-import { computed } from "vue";
-import { useLanguage } from "../composables/useLanguage.js";
-import { developerId, worksApps } from "../data/works.js";
+import LiquidGlass from "./LiquidGlass.vue";
+import { useWorksPage } from "../composables/useWorksPage.js";
 
-const { t, language } = useLanguage();
-
-const storefront = computed(() => ({ zh: "cn", en: "us", ja: "jp" })[language.value]);
-const developerUrl = computed(
-  () => `https://apps.apple.com/${storefront.value}/developer/id${developerId}`,
-);
+const { t, language, storefront, developerUrl, worksApps } = useWorksPage();
 </script>
 
 <template>
   <section class="works-content-section">
     <div class="works-wrap">
       <div class="app-grid">
-        <article
+        <LiquidGlass
+          as="article"
           v-for="(app, index) in worksApps"
           :key="app.id"
           class="app-card fade-in"
           :data-delay="120 + (index % 3) * 90"
         >
-          <div class="app-card-bg" aria-hidden="true">
-            <div
-              class="app-cover"
-              :style="{ backgroundImage: 'url(' + app.icon + ')' }"
-            ></div>
-            <div class="app-card-overlay"></div>
-          </div>
+          <template #background>
+            <div class="app-card-gradient">
+              <div
+                class="app-card-gradient__image"
+                :style="{ backgroundImage: `url(${app.icon})` }"
+              ></div>
+            </div>
+          </template>
           <img class="app-icon" :src="app.icon" :alt="app.name[language]" loading="lazy" />
           <h3 class="app-name">{{ app.name[language] }}</h3>
           <p class="app-tagline">{{ app.tagline[language] }}</p>
@@ -38,7 +34,7 @@ const developerUrl = computed(
               <ArrowUpRight :size="15" aria-hidden="true" />
             </a>
           </div>
-        </article>
+        </LiquidGlass>
       </div>
 
       <div class="works-developer fade-in" data-delay="200">
