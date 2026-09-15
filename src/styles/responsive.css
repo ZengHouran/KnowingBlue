@@ -77,6 +77,28 @@
     width: min(100% - 28px, 1080px);
   }
 
+  .works-header-bar {
+    margin-bottom: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .works-header-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .works-tabs {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .works-tab-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
   .app-grid {
     grid-template-columns: 1fr;
     gap: 20px;

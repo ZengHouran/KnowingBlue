@@ -3,16 +3,42 @@ import { ArrowUpRight } from "@lucide/vue";
 import LiquidGlass from "./LiquidGlass.vue";
 import { useWorksPage } from "../composables/useWorksPage.js";
 
-const { t, language, storefront, developerUrl, worksApps } = useWorksPage();
+const {
+  t,
+  language,
+  storefront,
+  developerUrl,
+  selectedCategory,
+  categories,
+  filteredApps,
+  setCategory,
+} = useWorksPage();
 </script>
 
 <template>
   <section class="works-content-section">
     <div class="works-wrap">
-      <div class="app-grid">
+      <div class="works-header-bar fade-in" data-delay="80">
+        <div class="works-tabs" role="tablist" aria-label="Works categories">
+          <button
+            v-for="cat in categories"
+            :key="cat.key"
+            type="button"
+            role="tab"
+            class="works-tab-btn"
+            :class="{ active: selectedCategory === cat.key }"
+            :aria-selected="selectedCategory === cat.key"
+            @click="setCategory(cat.key)"
+          >
+            {{ t[cat.labelKey] }}
+          </button>
+        </div>
+      </div>
+
+      <div v-if="filteredApps.length > 0" class="app-grid">
         <LiquidGlass
           as="article"
-          v-for="(app, index) in worksApps"
+          v-for="(app, index) in filteredApps"
           :key="app.id"
           class="app-card fade-in"
           :data-delay="120 + (index % 3) * 90"
@@ -35,6 +61,10 @@ const { t, language, storefront, developerUrl, worksApps } = useWorksPage();
             </a>
           </div>
         </LiquidGlass>
+      </div>
+
+      <div v-else class="works-empty fade-in" data-delay="120">
+        <p>{{ t.worksEmptyCategory }}</p>
       </div>
 
       <div class="works-developer fade-in" data-delay="200">

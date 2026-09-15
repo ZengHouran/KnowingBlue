@@ -3,6 +3,7 @@ export const developerId = "1804756359";
 export const worksApps = [
   {
     id: "6744120438",
+    category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/7a/19/377a1987-6c22-9ba7-2466-dda144b1616d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg",
     name: {
       zh: "SolarFocus - 专注行星",
@@ -22,6 +23,7 @@ export const worksApps = [
   },
   {
     id: "6745965004",
+    category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c0/01/86/c00186c8-1f84-8aa2-1a5f-a19d8a4befe5/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
     name: {
       zh: "Zemi Note - 语音识别翻译笔记",
@@ -41,6 +43,7 @@ export const worksApps = [
   },
   {
     id: "6749210346",
+    category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/16/ad/b316ad9b-4fab-f346-56bd-354bf13aa206/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
     name: {
       zh: "App Collector：应用收藏夹",
@@ -60,6 +63,7 @@ export const worksApps = [
   },
   {
     id: "6757810839",
+    category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/28/80/fc2880b0-4767-de1c-b454-7b60abdc39e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg",
     name: {
       zh: "Glint: 树影拼图",
@@ -79,6 +83,7 @@ export const worksApps = [
   },
   {
     id: "6757530321",
+    category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/58/0a/78/580a7806-9db3-b815-9ee9-86c7de9ce7c7/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
     name: {
       zh: "Appilot: 你的应用上架神器",
@@ -98,6 +103,7 @@ export const worksApps = [
   },
   {
     id: "6790173430",
+    category: "entertainment",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/fc/59/defc5987-8fe3-9cb2-a89d-c9f6dd981f13/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
     name: {
       zh: "Astral Survivors",
