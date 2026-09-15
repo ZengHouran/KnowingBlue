@@ -9,7 +9,7 @@ export const translations = {
     visionPageSubtitle: "探索感性与认知的边界，用设计连接内心与世界",
     worksStoreLink: "在 App Store 查看",
     worksDeveloperLink: "访问开发者主页",
-    visionTitle: "一封信",
+    visionTitle: "致来访者",
     letterGreeting: "你好，感谢你在这里停留。",
     letterParagraphs: [
       "蓝，是 KnowingBlue 的底色。",
@@ -43,7 +43,7 @@ export const translations = {
       "Exploring the boundaries of emotion and cognition, connecting hearts with the world through design",
     worksStoreLink: "View on App Store",
     worksDeveloperLink: "Visit Developer Page",
-    visionTitle: "A Letter",
+    visionTitle: "To the Visitor",
     letterGreeting: "Hello, and thank you for stopping by.",
     letterParagraphs: [
       "Blue is the foundation of KnowingBlue — the color of sky and sea. It says nothing, yet holds every feeling. I hope the things I make are the same: quiet, restrained, and constant.",
@@ -72,7 +72,7 @@ export const translations = {
     visionPageSubtitle: "感性と認知の境界を探求し、デザインで心と世界をつなぐ",
     worksStoreLink: "App Store で見る",
     worksDeveloperLink: "開発者ページを見る",
-    visionTitle: "一通の手紙",
+    visionTitle: "訪れるあなたへ",
     letterGreeting: "こんにちは。ここで立ち止まってくださり、ありがとうございます。",
     letterParagraphs: [
       "青は、KnowingBlue の底色です。空と海の色——何も語らないのに、あらゆる感情を受け止めます。私がつくるものも、そうありたい。静かに、控えめに、変わらずそこに。",

@@ -1,49 +1,62 @@
 .vision-content-section {
-  padding: 88px 0 92px;
+  padding: 96px 0 110px;
 }
 
 .content-wrap {
-  max-width: 920px;
+  width: min(100% - 32px, 1080px);
+  margin: 0 auto;
 }
 
 .letter {
   max-width: 680px;
-  margin: 0 auto 92px;
-}
-
-.letter h2 {
-  margin: 0 0 46px;
-  text-align: center;
-  font-size: clamp(26px, 4vw, 34px);
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.letter-body {
-  max-width: 600px;
   margin: 0 auto;
 }
 
-.letter-greeting {
+.vision-hero-letter {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.vision-hero-letter h2 {
+  margin: 0 0 44px;
+  text-align: center;
+  font-size: clamp(28px, 4.5vw, 40px);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.vision-hero-letter .letter-body {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.vision-hero-letter .letter-greeting {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: 16.5px;
+  font-weight: 500;
+  line-height: 1.8;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.vision-hero-letter .letter-paragraph {
   margin: 0 0 18px;
-  color: #4b5563;
-  font-size: 15.5px;
-  line-height: 2.1;
-}
-
-.letter-paragraph {
-  margin: 0 0 16px;
-  color: #4b5563;
-  font-size: 15.5px;
-  line-height: 2.1;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  line-height: 1.8;
   white-space: pre-line;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
-.letter-wish {
+.vision-hero-letter .letter-wish {
   margin: 36px 0 0;
-  color: #4b5563;
-  font-size: 15.5px;
-  line-height: 2.1;
+  color: #ffffff;
+  font-size: 16.5px;
+  font-weight: 500;
+  line-height: 1.8;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
 .pillar-grid {

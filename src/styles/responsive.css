@@ -36,12 +36,23 @@
     width: min(100% - 28px, 1080px);
   }
 
-  .vision-content-section {
-    padding: 68px 0 70px;
+  .vision-hero {
+    padding: 110px 0 70px;
   }
 
-  .letter {
-    margin-bottom: 60px;
+  .vision-hero-letter h2 {
+    margin-bottom: 32px;
+  }
+
+  .vision-hero-letter .letter-greeting,
+  .vision-hero-letter .letter-paragraph,
+  .vision-hero-letter .letter-wish {
+    font-size: 15px;
+    line-height: 1.78;
+  }
+
+  .vision-content-section {
+    padding: 68px 0 70px;
   }
 
   .pillar-grid {
