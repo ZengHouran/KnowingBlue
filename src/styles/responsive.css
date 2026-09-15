@@ -54,6 +54,10 @@
     padding-top: 21px;
   }
 
+  .works-shell {
+    background-attachment: scroll;
+  }
+
   .works-content-section {
     padding: 104px 0 70px;
   }
