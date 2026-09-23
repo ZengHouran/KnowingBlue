@@ -3,6 +3,18 @@ export const translations = {
     home: "首页",
     works: "作品",
     vision: "愿景",
+    astraNav: "未来",
+    astraHello: "你好",
+    astraFuture: "未来",
+    astraSkip: "跳至主要内容",
+    astraPrimaryNavigation: "主导航",
+    astraMobileNavigation: "移动端导航",
+    astraBrandHome: "Knowingblue 首页",
+    astraOpenNavigation: "打开导航",
+    astraCloseNavigation: "关闭导航",
+    astraHeroTitle: "你好，未来",
+    astraInteractionLabel: "拖动或使用方向键旋转 Astra 星空",
+    astraReplayLabel: "重新播放星空动画",
     languageLabel: "语言 / Language",
     heroDescription: "我们专注于感性与认知心理的创意探索，用设计触达内心深处。",
     visionPageTitle: "愿景",
@@ -38,6 +50,18 @@ export const translations = {
     home: "Home",
     works: "Works",
     vision: "Vision",
+    astraNav: "Future",
+    astraHello: "Hello",
+    astraFuture: "Future",
+    astraSkip: "Skip to main content",
+    astraPrimaryNavigation: "Primary navigation",
+    astraMobileNavigation: "Mobile navigation",
+    astraBrandHome: "Knowingblue home",
+    astraOpenNavigation: "Open navigation",
+    astraCloseNavigation: "Close navigation",
+    astraHeroTitle: "Hello, future",
+    astraInteractionLabel: "Drag or use arrow keys to rotate the Astra star field",
+    astraReplayLabel: "Replay the star field animation",
     languageLabel: "Language",
     heroDescription:
       "We focus on creative exploration of emotion and cognitive psychology, using design to reach the depths of the heart.",
@@ -75,6 +99,18 @@ export const translations = {
     home: "ホーム",
     works: "作品",
     vision: "ビジョン",
+    astraNav: "未来",
+    astraHello: "こんにちは",
+    astraFuture: "未来",
+    astraSkip: "メインコンテンツにスキップ",
+    astraPrimaryNavigation: "メインナビゲーション",
+    astraMobileNavigation: "モバイルナビゲーション",
+    astraBrandHome: "Knowingblue ホーム",
+    astraOpenNavigation: "ナビゲーションを開く",
+    astraCloseNavigation: "ナビゲーションを閉じる",
+    astraHeroTitle: "こんにちは、未来",
+    astraInteractionLabel: "ドラッグまたは矢印キーで Astra の星空を回転",
+    astraReplayLabel: "星空のアニメーションをもう一度再生",
     languageLabel: "言語 / Language",
     heroDescription:
       "私たちは感性と認知心理学の創造的探求に焦点を当て、デザインで心の奥深くに触れることを目指しています。",
@@ -113,6 +149,7 @@ export const metaByLanguage = {
   zh: {
     homeTitle: "KnowingBlue - 感性设计工作室",
     visionTitle: "愿景 - KnowingBlue",
+    astraTitle: "未来 - KnowingBlue",
     homeDescription:
       "KnowingBlue - 专注于感性与认知心理相关的创意工作室，以感性、品味、触达为核心理念。",
     visionDescription:
@@ -120,10 +157,12 @@ export const metaByLanguage = {
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
       "KnowingBlue 的作品 - 由曾厚然打造的 iOS 应用：SolarFocus、Zemi Note、App Collector、Glint、Appilot 等。",
+    astraDescription: "你好，未来。探索 GPT-6 Astra 带来的新一代智能体验。",
   },
   en: {
     homeTitle: "KnowingBlue - Emotional Design Studio",
     visionTitle: "Vision - KnowingBlue",
+    astraTitle: "Future - KnowingBlue",
     homeDescription:
       "KnowingBlue - A creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
     visionDescription:
@@ -131,10 +170,12 @@ export const metaByLanguage = {
     worksTitle: "Works - KnowingBlue",
     worksDescription:
       "Works by KnowingBlue - iOS apps crafted by Zeng Houran: SolarFocus, Zemi Note, App Collector, Glint, Appilot, and more.",
+    astraDescription: "Hello, future. Explore the next generation of intelligence with GPT-6 Astra.",
   },
   ja: {
     homeTitle: "KnowingBlue - 感性デザインスタジオ",
     visionTitle: "ビジョン - KnowingBlue",
+    astraTitle: "未来 - KnowingBlue",
     homeDescription:
       "KnowingBlue - 感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
     visionDescription:
@@ -142,6 +183,7 @@ export const metaByLanguage = {
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
       "KnowingBlue の作品 - Zeng Houran が手がけた iOS アプリ：SolarFocus、Zemi Note、App Collector、Glint、Appilot など。",
+    astraDescription: "こんにちは、未来。GPT-6 Astra がもたらす新世代の知能体験を探求します。",
   },
 };
 

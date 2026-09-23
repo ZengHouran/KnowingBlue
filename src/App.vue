@@ -18,17 +18,18 @@ const { startHeroTypewriter, stopHeroTypewriter } = useHeroTypewriter();
 const { observeFadeIn, disconnectFadeIn } = useFadeInObserver();
 
 function syncMeta() {
+  const meta = metaByLanguage[language.value];
+
   if (isAstra.value) {
-    document.documentElement.lang = "ja";
-    document.title = "GPT-6 Astra";
+    document.documentElement.lang = language.value === "zh" ? "zh-CN" : language.value;
+    document.title = meta.astraTitle;
     document.querySelector('meta[name="description"]')?.setAttribute(
       "content",
-      "GPT-6 Astra — 新しい可能性を、ともに。",
+      meta.astraDescription,
     );
     return;
   }
 
-  const meta = metaByLanguage[language.value];
   document.documentElement.lang = language.value === "zh" ? "zh-CN" : language.value;
   const title = isVision.value ? meta.visionTitle : isWorks.value ? meta.worksTitle : meta.homeTitle;
   const description = isVision.value
