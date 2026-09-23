@@ -13,8 +13,21 @@
 .astra-sr-only, .astra-skip:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .astra-skip:focus { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 20px; border-radius: 30px; background: #fff; color: #000; }
 .astra-hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; background: transparent; }
-.astra-space { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #000 0, #03080b 37%, #070f15 74%, #040a0e 100%); }
-.astra-star-canvas, .astra-star-fallback { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.astra-space {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, #000000 0%, #03080b 37%, #070f15 74%, #040a0e 100%);
+}
+.astra-cosmic-canvas,
+.astra-star-canvas,
+.astra-star-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .astra-star-fallback { opacity: .85; }
 .astra-star-interaction { position: absolute; inset: 0; z-index: 2; cursor: grab; touch-action: pan-y; }
 .astra-star-interaction.is-dragging { cursor: grabbing; }
