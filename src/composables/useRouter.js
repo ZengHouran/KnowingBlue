@@ -1,11 +1,12 @@
 import { computed, ref } from "vue";
 
-const routePaths = { home: "/", works: "/works", vision: "/vision" };
+const routePaths = { home: "/", works: "/works", vision: "/vision", astra: "/astra" };
 
 export function normalizeRoute(path) {
   const value = path.replace(/^#\/?/, "").replace(/^\//, "").replace(/\/$/, "");
   if (value === "vision" || value === "vision.html") return "vision";
   if (value === "works" || value === "works.html") return "works";
+  if (value === "astra" || value === "astra.html") return "astra";
   return "home";
 }
 
@@ -29,6 +30,7 @@ export function useRouter() {
   const isHome = computed(() => route.value === "home");
   const isVision = computed(() => route.value === "vision");
   const isWorks = computed(() => route.value === "works");
+  const isAstra = computed(() => route.value === "astra");
 
   function navigate(nextRoute) {
     const nextPath = routePaths[nextRoute] || "/";
@@ -41,7 +43,7 @@ export function useRouter() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  return { route, isHome, isVision, isWorks, navigate };
+  return { route, isHome, isVision, isWorks, isAstra, navigate };
 }
 
 export function bindRouteListeners() {

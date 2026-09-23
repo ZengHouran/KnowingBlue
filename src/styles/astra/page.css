@@ -1,0 +1,37 @@
+.astra-page {
+  min-height: 100vh;
+  color: #fafafa;
+  background: #05090c;
+  font-family: Arial, 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+.astra-page a { color: inherit; }
+.astra-page button, .astra-page a { -webkit-tap-highlight-color: transparent; }
+.astra-page :focus-visible { outline: 2px solid #a9d6ff; outline-offset: 6px; }
+.astra-sr-only, .astra-skip:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.astra-skip:focus { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 20px; border-radius: 30px; background: #fff; color: #000; }
+.astra-hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; background: transparent; }
+.astra-space { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #000 0, #03080b 37%, #070f15 74%, #040a0e 100%); }
+.astra-star-canvas, .astra-star-fallback { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.astra-star-fallback { opacity: .85; }
+.astra-star-interaction { position: absolute; inset: 0; z-index: 2; cursor: grab; touch-action: pan-y; }
+.astra-star-interaction.is-dragging { cursor: grabbing; }
+.astra-star-interaction:focus-visible { outline-offset: -8px; border-radius: 12px; }
+.astra-hero-wordmark { position: absolute; z-index: 3; top: 50%; left: 3.15%; right: 3.15%; display: flex; justify-content: space-between; transform: translateY(-50%); pointer-events: none; font-size: clamp(48px, 4.65vw, 108px); line-height: 1; letter-spacing: -.055em; }
+.astra-hero-wordmark span { animation: astra-wordmark-in 1.8s ease both; }
+.astra-replay { position: absolute; right: 12px; bottom: 12px; z-index: 4; display: grid; place-items: center; width: 42px; height: 42px; padding: 10px; border-radius: 50%; color: #f3f3f3; background: #ffffff24; backdrop-filter: blur(12px); transition: background .2s, transform .3s; }
+.astra-replay:hover { background: #ffffff38; transform: rotate(-20deg); }
+.astra-replay svg { width: 100%; height: 100%; }
+@keyframes astra-wordmark-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 700px) {
+  .astra-hero { min-height: 580px; }
+  .astra-hero-wordmark { top: 47%; left: 5%; right: 5%; font-size: clamp(30px, 7vw, 48px); }
+  .astra-replay { width: 38px; height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .astra-page *, .astra-page *::before, .astra-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+.astra-field-backdrop { position: fixed; inset: 0; z-index: -1; pointer-events: none; }

@@ -65,6 +65,7 @@ onUnmounted(() => {
         <button type="button" :class="{ active: isHome }" @click="navigateAndClose('home')">
           {{ t.home }}
         </button>
+        <button type="button" @click="navigateAndClose('astra')">Astra</button>
         <button type="button" :class="{ active: isWorks }" @click="navigateAndClose('works')">
           {{ t.works }}
         </button>
@@ -120,6 +121,7 @@ onUnmounted(() => {
         <div class="mobile-menu-inner" @click.stop>
           <nav aria-label="Mobile navigation">
             <button type="button" @click="navigateAndClose('home')">{{ t.home }}</button>
+            <button type="button" @click="navigateAndClose('astra')">Astra</button>
             <button type="button" @click="navigateAndClose('works')">{{ t.works }}</button>
             <button type="button" @click="navigateAndClose('vision')">{{ t.vision }}</button>
           </nav>

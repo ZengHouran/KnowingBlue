@@ -45,8 +45,12 @@ npm run build
 
 - `/` 首页
 - `/vision` 愿景页
+- `/works` 作品页
+- `/astra` GPT-6 Astra 独立页面（兼容 `/astra.html` 和 `/#/astra`）
 
 `public/404.html` 用于 GitHub Pages 刷新深层路由时回跳到 Vue 应用。`public/vision.html` 会在构建后输出为 `/vision.html`，自动跳转到 `/vision`，用于兼容旧链接。
+
+`/astra` 使用独立页面布局与日语元数据，不显示主站导航及音乐播放器。`public/astra.html` 提供静态部署入口并跳转到应用路由。
 
 ## 内容修改
 

@@ -5,6 +5,7 @@ import HomeHero from "./components/HomeHero.vue";
 import SiteHeader from "./components/SiteHeader.vue";
 import VisionPage from "./components/VisionPage.vue";
 import WorksPage from "./components/WorksPage.vue";
+import AstraPage from "./components/astra/AstraPage.vue";
 import { useFadeInObserver } from "./composables/useFadeIn.js";
 import { useHeroTypewriter } from "./composables/useHeroTypewriter.js";
 import { useLanguage } from "./composables/useLanguage.js";
@@ -12,11 +13,21 @@ import { bindRouteListeners, useRouter } from "./composables/useRouter.js";
 import { metaByLanguage } from "./data/translations.js";
 
 const { language } = useLanguage();
-const { route, isHome, isVision, isWorks } = useRouter();
+const { route, isHome, isVision, isWorks, isAstra } = useRouter();
 const { startHeroTypewriter, stopHeroTypewriter } = useHeroTypewriter();
 const { observeFadeIn, disconnectFadeIn } = useFadeInObserver();
 
 function syncMeta() {
+  if (isAstra.value) {
+    document.documentElement.lang = "ja";
+    document.title = "GPT-6 Astra";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "GPT-6 Astra — 新しい可能性を、ともに。",
+    );
+    return;
+  }
+
   const meta = metaByLanguage[language.value];
   document.documentElement.lang = language.value === "zh" ? "zh-CN" : language.value;
   const title = isVision.value ? meta.visionTitle : isWorks.value ? meta.worksTitle : meta.homeTitle;
@@ -29,19 +40,25 @@ function syncMeta() {
   document.querySelector('meta[name="description"]')?.setAttribute("content", description);
 }
 
+function syncPageEffects() {
+  stopHeroTypewriter();
+  disconnectFadeIn();
+  if (isAstra.value) return;
+  if (isHome.value) startHeroTypewriter();
+  observeFadeIn();
+}
+
 watch([language, route], async () => {
   syncMeta();
-  startHeroTypewriter();
   await nextTick();
-  observeFadeIn();
+  syncPageEffects();
 });
 
 let unbindRouteListeners = () => {};
 
 onMounted(() => {
   syncMeta();
-  startHeroTypewriter();
-  observeFadeIn();
+  syncPageEffects();
   unbindRouteListeners = bindRouteListeners();
 });
 
@@ -53,7 +70,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="site-shell" :class="{ 'home-shell': isHome, 'works-shell': isWorks }">
+  <AstraPage v-if="isAstra" />
+
+  <div v-else class="site-shell" :class="{ 'home-shell': isHome, 'works-shell': isWorks }">
     <SiteHeader />
 
     <main>

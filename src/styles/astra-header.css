@@ -1,0 +1,55 @@
+.astra-header {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  gap: 42px;
+  padding: 0 48px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.astra-header a { color: inherit; text-decoration: none; }
+.astra-wordmark { flex-shrink: 0; font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 500; line-height: 1; }
+.astra-desktop-nav { display: flex; align-items: center; gap: 25px; margin-left: auto; }
+.astra-desktop-nav > button { position: relative; white-space: nowrap; transition: opacity 180ms ease; }
+.astra-desktop-nav > button:hover { opacity: .65; }
+.astra-desktop-nav > button.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: currentColor; }
+.astra-language-switcher { position: relative; }
+.astra-language-button { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.astra-language-menu { position: absolute; top: calc(100% + 16px); right: 0; width: 120px; padding: 8px; border: 1px solid #353535; border-radius: 8px; background: rgba(15, 15, 15, .96); box-shadow: 0 12px 32px rgba(0, 0, 0, .35); }
+.astra-language-menu button { display: block; width: 100%; padding: 9px 10px; border-radius: 5px; text-align: left; }
+.astra-language-menu button:hover { background: #292929; }
+.astra-menu-toggle { display: none; position: relative; width: 34px; height: 38px; margin-left: auto; padding: 8px; }
+.astra-menu-toggle span { position: absolute; left: 7px; width: 20px; height: 1px; background: white; transition: transform 180ms ease; }
+.astra-menu-toggle span:first-child { top: 15px; }
+.astra-menu-toggle span:last-child { top: 23px; }
+.astra-menu-toggle span.is-open:first-child { transform: translateY(4px) rotate(45deg); }
+.astra-menu-toggle span.is-open:last-child { transform: translateY(-4px) rotate(-45deg); }
+.astra-mobile-nav { position: absolute; top: 76px; left: 0; right: 0; display: flex; flex-direction: column; padding: 20px 24px 30px; background: rgba(0, 0, 0, .97); border-bottom: 1px solid #262626; }
+.astra-mobile-nav > button { padding: 15px 0; font-size: 18px; text-align: left; }
+.astra-mobile-language { margin-top: 14px; padding-top: 20px; border-top: 1px solid #333; color: #a8a8a8; font-size: 13px; }
+.astra-mobile-language > div { display: flex; gap: 18px; margin-top: 15px; }
+.astra-mobile-language button { color: #888; }
+.astra-mobile-language button.selected { color: #fff; }
+.astra-header a:focus-visible, .astra-header button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+
+@media (max-width: 1050px) {
+  .astra-header { gap: 26px; padding: 0 26px; }
+  .astra-desktop-nav { gap: 18px; }
+}
+
+@media (max-width: 780px) {
+  .astra-header { height: 76px; padding: 0 24px; }
+  .astra-desktop-nav { display: none; }
+  .astra-menu-toggle { display: block; }
+}
+
+@media (max-width: 480px) {
+  .astra-header { padding: 0 20px; gap: 15px; }
+}
