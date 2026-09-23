@@ -218,3 +218,66 @@
 .works-shell .site-header.open {
   color: var(--ink);
 }
+
+.site-header.astra-mode {
+  color: #fafafa;
+}
+
+.site-header.astra-mode .desktop-nav > button.active {
+  color: #ffffff;
+  position: relative;
+}
+
+.site-header.astra-mode .desktop-nav > button.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: currentColor;
+}
+
+.site-header.astra-mode .language-menu {
+  color: #f3f3f3;
+  background: rgba(15, 15, 15, 0.96);
+  border-color: #353535;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.site-header.astra-mode .language-menu button {
+  color: #d1d5db;
+}
+
+.site-header.astra-mode .language-menu button:hover,
+.site-header.astra-mode .language-menu button.selected {
+  background: #262626;
+  color: #ffffff;
+}
+
+.mobile-menu.theme-dark {
+  background: rgba(0, 0, 0, 0.96);
+  border-bottom: 1px solid #262626;
+}
+
+.mobile-menu.theme-dark .mobile-language {
+  border-top-color: #333333;
+}
+
+.mobile-menu.theme-dark .mobile-language span {
+  color: #a8a8a8;
+}
+
+.mobile-menu.theme-dark .mobile-language button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #888888;
+}
+
+.mobile-menu.theme-dark .mobile-language button.selected,
+.mobile-menu.theme-dark .mobile-language button:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+

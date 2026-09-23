@@ -71,17 +71,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <AstraPage v-if="isAstra" />
-
-  <div v-else class="site-shell" :class="{ 'home-shell': isHome, 'works-shell': isWorks }">
+  <div
+    class="site-shell"
+    :class="{
+      'home-shell': isHome,
+      'works-shell': isWorks,
+      'vision-shell': isVision,
+      'astra-shell': isAstra,
+    }"
+  >
     <SiteHeader />
 
     <main>
       <HomeHero v-if="isHome" />
       <VisionPage v-else-if="isVision" />
-      <WorksPage v-else />
+      <WorksPage v-else-if="isWorks" />
+      <AstraPage v-else-if="isAstra" />
     </main>
 
-    <AudioPlayer />
+    <AudioPlayer v-if="!isAstra" />
   </div>
 </template>

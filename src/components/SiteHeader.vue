@@ -3,14 +3,23 @@ import { ChevronDown, Menu, X } from "@lucide/vue";
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import { useLanguage } from "../composables/useLanguage.js";
 import { useRouter } from "../composables/useRouter.js";
+import { navigationItems } from "../data/navigation.js";
 import { langNames } from "../data/translations.js";
 
 const { t, language, setLanguage } = useLanguage();
-const { route, isHome, isVision, isWorks, navigate } = useRouter();
+const { route, isHome, isVision, isWorks, isAstra, navigate } = useRouter();
 
 const isMenuOpen = ref(false);
 const isLanguageOpen = ref(false);
 const hasScrolled = ref(false);
+
+function isRouteActive(itemRoute) {
+  if (itemRoute === "home") return isHome.value;
+  if (itemRoute === "astra") return isAstra.value;
+  if (itemRoute === "works") return isWorks.value;
+  if (itemRoute === "vision") return isVision.value;
+  return route.value === itemRoute;
+}
 
 function handleScroll() {
   hasScrolled.value = window.scrollY > 10;
@@ -18,6 +27,13 @@ function handleScroll() {
 
 function handleOutsideClick(event) {
   if (!event.target.closest(".language-switcher")) {
+    isLanguageOpen.value = false;
+  }
+}
+
+function handleKeyDown(event) {
+  if (event.key === "Escape") {
+    isMenuOpen.value = false;
     isLanguageOpen.value = false;
   }
 }
@@ -47,30 +63,45 @@ onMounted(() => {
   handleScroll();
   window.addEventListener("scroll", handleScroll, { passive: true });
   document.addEventListener("click", handleOutsideClick);
+  window.addEventListener("keydown", handleKeyDown);
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
   document.removeEventListener("click", handleOutsideClick);
+  window.removeEventListener("keydown", handleKeyDown);
   document.body.classList.remove("mobile-menu-open");
 });
 </script>
 
 <template>
-  <header class="site-header" :class="{ scrolled: hasScrolled, open: isMenuOpen }">
+  <header
+    class="site-header"
+    :class="{
+      scrolled: hasScrolled && !isAstra,
+      open: isMenuOpen,
+      'astra-mode': isAstra,
+    }"
+  >
     <div class="header-inner">
-      <button class="brand-link" type="button" @click="navigateAndClose('home')">KnowingBlue</button>
+      <button
+        class="brand-link"
+        type="button"
+        :aria-label="t.brandHome || t.astraBrandHome"
+        @click="navigateAndClose('home')"
+      >
+        KnowingBlue
+      </button>
 
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <button type="button" :class="{ active: isHome }" @click="navigateAndClose('home')">
-          {{ t.home }}
-        </button>
-        <button type="button" @click="navigateAndClose('astra')">Astra</button>
-        <button type="button" :class="{ active: isWorks }" @click="navigateAndClose('works')">
-          {{ t.works }}
-        </button>
-        <button type="button" :class="{ active: isVision }" @click="navigateAndClose('vision')">
-          {{ t.vision }}
+      <nav class="desktop-nav" :aria-label="t.primaryNavigation || t.astraPrimaryNavigation">
+        <button
+          v-for="item in navigationItems"
+          :key="item.key"
+          type="button"
+          :class="{ active: isRouteActive(item.route) }"
+          @click="navigateAndClose(item.route)"
+        >
+          {{ t[item.labelKey] }}
         </button>
 
         <div class="language-switcher">
@@ -79,6 +110,7 @@ onUnmounted(() => {
             type="button"
             aria-haspopup="menu"
             :aria-expanded="isLanguageOpen"
+            :aria-label="t.languageLabel"
             @click.stop="isLanguageOpen = !isLanguageOpen"
           >
             <span>{{ langNames[language] }}</span>
@@ -90,6 +122,7 @@ onUnmounted(() => {
               :key="key"
               type="button"
               role="menuitem"
+              :class="{ selected: language === key }"
               @click="changeLanguage(key)"
             >
               {{ name }}
@@ -101,7 +134,12 @@ onUnmounted(() => {
       <button
         class="mobile-menu-button"
         type="button"
-        :aria-label="isMenuOpen ? 'Close navigation' : 'Open navigation'"
+        :aria-label="
+          isMenuOpen
+            ? t.closeNavigation || t.astraCloseNavigation
+            : t.openNavigation || t.astraOpenNavigation
+        "
+        :aria-expanded="isMenuOpen"
         @click="isMenuOpen = !isMenuOpen"
       >
         <Menu v-if="!isMenuOpen" :size="26" aria-hidden="true" />
@@ -114,16 +152,22 @@ onUnmounted(() => {
         class="mobile-menu"
         :class="{
           visible: isMenuOpen,
-          'theme-light': isWorks || hasScrolled,
+          'theme-light': (isWorks || hasScrolled) && !isAstra,
+          'theme-dark': isAstra,
         }"
         @click.self="isMenuOpen = false"
       >
         <div class="mobile-menu-inner" @click.stop>
-          <nav aria-label="Mobile navigation">
-            <button type="button" @click="navigateAndClose('home')">{{ t.home }}</button>
-            <button type="button" @click="navigateAndClose('astra')">Astra</button>
-            <button type="button" @click="navigateAndClose('works')">{{ t.works }}</button>
-            <button type="button" @click="navigateAndClose('vision')">{{ t.vision }}</button>
+          <nav :aria-label="t.mobileNavigation || t.astraMobileNavigation">
+            <button
+              v-for="item in navigationItems"
+              :key="item.key"
+              type="button"
+              :class="{ active: isRouteActive(item.route) }"
+              @click="navigateAndClose(item.route)"
+            >
+              {{ t[item.labelKey] }}
+            </button>
           </nav>
 
           <div class="mobile-language">
