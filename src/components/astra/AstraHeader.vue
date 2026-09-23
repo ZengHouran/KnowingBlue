@@ -25,7 +25,7 @@ const {
 
     <nav class="astra-desktop-nav" aria-label="主导航">
       <button type="button" :class="{ active: isHome }" @click="navigateAndClose('home')">{{ t.home }}</button>
-      <button type="button" :class="{ active: isAstra }" @click="navigateAndClose('astra')">Astra</button>
+      <button type="button" :class="{ active: isAstra }" @click="navigateAndClose('astra')">未来</button>
       <button type="button" :class="{ active: isWorks }" @click="navigateAndClose('works')">{{ t.works }}</button>
       <button type="button" :class="{ active: isVision }" @click="navigateAndClose('vision')">{{ t.vision }}</button>
 
@@ -68,7 +68,7 @@ const {
 
     <nav v-if="menuOpen" id="astra-mobile-menu" class="astra-mobile-nav" aria-label="移动端导航">
       <button type="button" @click="navigateAndClose('home')">{{ t.home }}</button>
-      <button type="button" @click="navigateAndClose('astra')">Astra</button>
+      <button type="button" @click="navigateAndClose('astra')">未来</button>
       <button type="button" @click="navigateAndClose('works')">{{ t.works }}</button>
       <button type="button" @click="navigateAndClose('vision')">{{ t.vision }}</button>
       <div class="astra-mobile-language">
