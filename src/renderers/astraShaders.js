@@ -56,11 +56,11 @@ void main() {
   p.xy += uPointer * (.008+p.z*.014) * uPresence * facing;
   gl_Position = vec4(p.xy, 0.0, 1.0);
   vLarge = smoothstep(2.0, 4.0, aSize);
-  gl_PointSize = max(1.0, aSize * uDpr * (1.8 + vLarge * 6.8) * perspective);
+  gl_PointSize = max(1.0, aSize * uDpr * (1.8 + vLarge * 6.8) * perspective) * 1.08;
   vBrightness = aBrightness * (.86 + .14*sin(uTime*.65+aPhase)) * mix(.5,1.0,settle) * mix(1.0, .40, away * field) * mix(1.0, .5 + .5 * sqrt(facing), field);
   vTemperature = aTemperature;
   vCentral = (1.0 - smoothstep(.06, .23, length(aPosition.xy))) * field;
-  vBrightness *= mix(1.0, .55, vCentral);
+  vBrightness *= mix(1.0, .55, vCentral) * 1.08;
 }
 `;
 

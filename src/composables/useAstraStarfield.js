@@ -131,7 +131,7 @@ export function useAstraStarfield(canvasRef, stageRef) {
     // SVG fallback keeps the composition visible when GPU rendering is unavailable.
     fallbackStars.value = Array.from({ length: Math.min(1600, quality.count) }, (_, i) => {
       const index = Math.floor(i * quality.count / 1600) * 8;
-      return { x: 500 + stars[index] * 500, y: 500 - stars[index + 1] * 500, size: stars[index + 3] * .55, opacity: stars[index + 4], color: stars[index + 6] > .72 ? '#ffc195' : '#bce4ff' };
+      return { x: 500 + stars[index] * 500, y: 500 - stars[index + 1] * 500, size: stars[index + 3] * .55 * 1.08, opacity: Math.min(1, stars[index + 4] * 1.08), color: stars[index + 6] > .72 ? '#ffc195' : '#bce4ff' };
     });
     try { renderer = createAstraRenderer(canvasRef.value, stars); }
     catch (error) { console.warn('Astra star field: using the static fallback.', error); renderer = null; }

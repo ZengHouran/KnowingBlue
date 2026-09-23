@@ -43,12 +43,14 @@ export function createStarfield(count = 12_000, seed = 614) {
     const isFigure = index < figureCount;
     let isCore = false;
     let isArm = false;
+    let isCluster = false;
     let brightEligible = false;
 
     if (isFigure) {
       const galaxy = sampleGalaxy(random, index);
       isCore = galaxy.core;
       isArm = galaxy.arm;
+      isCluster = galaxy.cluster;
       brightEligible = galaxy.brightEligible;
       stars.set(galaxy.position, offset);
     } else {
@@ -59,20 +61,23 @@ export function createStarfield(count = 12_000, seed = 614) {
 
     const prominence = random();
     const brightnessSample = random();
-    const isBright = brightEligible && brightnessSample < 0.012;
+    // Rare luminous stars favor arm interiors and compact star-forming knots.
+    const isBright = brightEligible && brightnessSample < (isCluster ? 0.055 : 0.018);
     if (isFigure) {
       stars[offset + 3] = isCore ? 0.5 + prominence ** 5 * 0.8
-        : isBright ? 2.5 + prominence * 2.5
-        : isArm ? 0.5 + prominence ** 5 * 1.7 : 0.35 + prominence ** 5 * 0.6;
+        : isBright ? 2.5 + prominence ** 2 * 1.5
+        : isArm || isCluster ? 0.5 + prominence ** 5 * 1.7 : 0.35 + prominence ** 5 * 0.6;
       stars[offset + 4] = isCore ? 0.3 + random() * 0.2
         : isBright ? 0.8 + random() * 0.2
-        : isArm ? 0.35 + random() * 0.35 : 0.15 + random() * 0.3;
+        : isArm || isCluster ? 0.35 + random() * 0.35 : 0.15 + random() * 0.3;
     } else {
       stars[offset + 3] = 0.35 + prominence ** 5 * 0.6;
       stars[offset + 4] = 0.1 + random() ** 1.4 * 0.5;
     }
     stars[offset + 5] = random() * FULL_TURN;
-    stars[offset + 6] = isCore ? 0.4 + random() * 0.2 : random();
+    const temperature = random();
+    stars[offset + 6] = isCore ? 0.4 + temperature * 0.2
+      : isBright ? 0.18 + temperature * 0.48 : temperature;
     stars[offset + 7] = Number(isFigure);
   }
 
