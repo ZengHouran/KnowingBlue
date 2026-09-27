@@ -67,9 +67,9 @@ export function createStarfield(count = 12_000, seed = 614) {
       stars[offset + 3] = isCore ? 0.5 + prominence ** 5 * 0.8
         : isBright ? 2.5 + prominence ** 2 * 1.5
         : isArm || isCluster ? 0.5 + prominence ** 5 * 1.7 : 0.35 + prominence ** 5 * 0.6;
-      stars[offset + 4] = isCore ? 0.3 + random() * 0.2
+      stars[offset + 4] = isCore ? 0.36 + random() * 0.2
         : isBright ? 0.8 + random() * 0.2
-        : isArm || isCluster ? 0.35 + random() * 0.35 : 0.15 + random() * 0.3;
+        : isArm || isCluster ? 0.48 + random() * 0.4 : 0.24 + random() * 0.38;
     } else {
       stars[offset + 3] = 0.35 + prominence ** 5 * 0.6;
       stars[offset + 4] = 0.1 + random() ** 1.4 * 0.5;

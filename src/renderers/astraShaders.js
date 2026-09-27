@@ -60,7 +60,8 @@ void main() {
   vBrightness = aBrightness * (.86 + .14*sin(uTime*.65+aPhase)) * mix(.5,1.0,settle) * mix(1.0, .40, away * field) * mix(1.0, .5 + .5 * sqrt(facing), field);
   vTemperature = aTemperature;
   vCentral = (1.0 - smoothstep(.06, .23, length(aPosition.xy))) * field;
-  vBrightness *= mix(1.0, .55, vCentral) * 1.1664;
+  vBrightness *= mix(1.0, .58, vCentral) * 1.1664;
+  vBrightness *= mix(1.0, 1.18, field);
 }
 `;
 
