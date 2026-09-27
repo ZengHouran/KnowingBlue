@@ -89,6 +89,6 @@ onUnmounted(() => {
       <AstraPage v-else-if="isAstra" />
     </main>
 
-    <AudioPlayer v-if="!isAstra" />
+    <AudioPlayer />
   </div>
 </template>

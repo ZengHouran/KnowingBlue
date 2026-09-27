@@ -3,7 +3,7 @@ import { PauseCircle, Play } from "@lucide/vue";
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "../composables/useRouter.js";
 
-const { isVision } = useRouter();
+const { isVision, isAstra } = useRouter();
 
 const audio = ref(null);
 const isPlaying = ref(false);
@@ -129,7 +129,7 @@ onUnmounted(() => {
 <template>
   <div
     class="audio-player"
-    :class="{ hiddenMobile: playerHidden, visionStyle: isVision }"
+    :class="{ hiddenMobile: playerHidden, visionStyle: isVision, astraStyle: isAstra }"
     @mouseenter="showPlayer"
     @mouseleave="schedulePlayerHide"
     @focusin="showPlayer"

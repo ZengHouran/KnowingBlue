@@ -39,7 +39,8 @@
   backdrop-filter: blur(8px);
 }
 
-.audio-player.visionStyle .audio-button {
+.audio-player.visionStyle .audio-button,
+.audio-player.astraStyle .audio-button {
   color: rgba(255, 255, 255, 0.86);
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.22);
@@ -70,10 +71,28 @@
   transition: stroke-dashoffset 180ms ease;
 }
 
-.audio-player.visionStyle .progress-track {
+.audio-player.visionStyle .progress-track,
+.audio-player.astraStyle .progress-track {
   stroke: rgba(255, 255, 255, 0.2);
 }
 
-.audio-player.visionStyle .progress-value {
+.audio-player.visionStyle .progress-value,
+.audio-player.astraStyle .progress-value {
   stroke: rgba(255, 255, 255, 0.66);
+}
+
+.audio-player.astraStyle {
+  right: 64px;
+  bottom: 9px;
+}
+
+@media (max-width: 700px) {
+  .audio-player.astraStyle {
+    right: 60px;
+    bottom: 7px;
+  }
+}
+
+.audio-player.astraStyle.hiddenMobile {
+  transform: translateX(calc(100% + 64px));
 }
