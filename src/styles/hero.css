@@ -16,8 +16,23 @@
   height: auto;
   min-height: 100vh;
   padding: 140px 0 100px;
-  background-image: url("/pictures/bgvision.jpg");
+  background-color: #030712;
+  background-image: url("/pictures/bgvision.webp");
+  background-image: image-set(
+    url("/pictures/bgvision.webp") type("image/webp"),
+    url("/pictures/bgvision.jpg") type("image/jpeg")
+  );
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .vision-hero {
+    background-image: url("/pictures/bgvision-mobile.webp");
+    background-image: image-set(
+      url("/pictures/bgvision-mobile.webp") type("image/webp"),
+      url("/pictures/bgvision-mobile.jpg") type("image/jpeg")
+    );
+  }
 }
 
 .hero-overlay {

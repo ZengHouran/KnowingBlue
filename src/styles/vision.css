@@ -56,6 +56,7 @@
   font-size: 16.5px;
   font-weight: 500;
   line-height: 1.8;
+  white-space: pre-line;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
