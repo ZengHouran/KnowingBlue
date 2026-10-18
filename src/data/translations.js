@@ -201,7 +201,7 @@ export const metaByLanguage = {
       "了解KnowingBlue的愿景 - 一封写给来访者的信。来自专注感性与认知心理的创意工作室，以感性、品味、触达为核心理念。",
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
-      "KnowingBlue 的作品 - 由曾厚然打造的 iOS 应用：SolarFocus、Zemi Note、App Collector、Glint、Appilot 等。",
+      "KnowingBlue 的作品 - 由曾厚然打造的 iOS 应用：Androvia、SolarFocus、Zemi Note、App Collector、Glint、Appilot 等。",
     astraDescription: "你好，未来。探索 GPT-6 Astra 带来的新一代智能体验。",
   },
   en: {
@@ -214,7 +214,7 @@ export const metaByLanguage = {
       "A letter from KnowingBlue - a creative studio focused on emotion and cognitive psychology, with sensibility, taste, and connection as core concepts.",
     worksTitle: "Works - KnowingBlue",
     worksDescription:
-      "Works by KnowingBlue - iOS apps crafted by Zeng Houran: SolarFocus, Zemi Note, App Collector, Glint, Appilot, and more.",
+      "Works by KnowingBlue - iOS apps crafted by Zeng Houran: Androvia, SolarFocus, Zemi Note, App Collector, Glint, Appilot, and more.",
     astraDescription: "Hello, future. Explore the next generation of intelligence with GPT-6 Astra.",
   },
   ja: {
@@ -227,7 +227,7 @@ export const metaByLanguage = {
       "KnowingBlue のビジョン - 訪れるあなたへの一通の手紙。感性と認知心理学に特化したクリエイティブスタジオ、感性、品味、触達を核心理念とする。",
     worksTitle: "作品 - KnowingBlue",
     worksDescription:
-      "KnowingBlue の作品 - Zeng Houran が手がけた iOS アプリ：SolarFocus、Zemi Note、App Collector、Glint、Appilot など。",
+      "KnowingBlue の作品 - Zeng Houran が手がけた iOS アプリ：Androvia、SolarFocus、Zemi Note、App Collector、Glint、Appilot など。",
     astraDescription: "こんにちは、未来。GPT-6 Astra がもたらす新世代の知能体験を探求します。",
   },
 };

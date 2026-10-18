@@ -2,6 +2,26 @@ export const developerId = "1804756359";
 
 export const worksApps = [
   {
+    id: "6793933831",
+    category: "productivity",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c5/27/d9/c527d902-02cc-1ff4-9263-fee724461c57/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg",
+    name: {
+      zh: "Androvia",
+      en: "Androvia",
+      ja: "Androvia",
+    },
+    tagline: {
+      zh: "无缝连接 Android 与 Apple 生态，支持高速互联、原生级文件管理与高清屏幕镜像。",
+      en: "Seamlessly connect Android and Apple devices with fast file management and low-latency screen mirroring.",
+      ja: "Android と Apple デバイスをシームレスに接続。高速ファイル管理と低遅延画面ミラーリングを実現。",
+    },
+    url: {
+      cn: "https://apps.apple.com/cn/app/id6793933831",
+      us: "https://apps.apple.com/us/app/id6793933831",
+      jp: "https://apps.apple.com/jp/app/id6793933831",
+    },
+  },
+  {
     id: "6744120438",
     category: "productivity",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/7a/19/377a1987-6c22-9ba7-2466-dda144b1616d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg",
