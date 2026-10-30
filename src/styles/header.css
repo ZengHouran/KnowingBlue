@@ -212,9 +212,10 @@
 }
 
 .works-shell .site-header {
-  color: var(--ink);
+  color: #ffffff;
 }
 
+.works-shell .site-header.scrolled,
 .works-shell .site-header.open {
   color: var(--ink);
 }
