@@ -169,7 +169,7 @@
 
 .app-name {
   margin: 0 0 8px;
-  color: #0f172a;
+  color: #ffffff;
   font-size: 18.5px;
   font-weight: 600;
   line-height: 1.35;
@@ -180,7 +180,7 @@
 .app-tagline {
   flex: 1;
   margin: 0 0 20px;
-  color: #293b49;
+  color: #ffffff;
   font-size: 13.5px;
   line-height: 1.68;
   letter-spacing: 0;
